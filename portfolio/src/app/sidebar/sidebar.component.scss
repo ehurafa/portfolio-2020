@@ -1,0 +1,30 @@
+@import '../../shared/mixins';
+@import '../../shared/placeholders';
+
+figure {
+    margin-bottom: 0;
+    img {
+        max-width: 100%;
+    }
+}
+
+.logo { 
+    margin: 2.5rem 0;    
+}
+
+.brand { 
+    margin-bottom: 2.5rem;
+}
+
+.navigation { 
+    nav {
+        display: inline-block;
+        width: 100%;
+        a {
+           @extend %primary_link;
+
+           display: inline-block;
+           width: 100%;
+        }
+    }    
+}

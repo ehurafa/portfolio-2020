@@ -1,0 +1,11 @@
+@import './colors';
+
+%primary_link {
+    @include transition(all .3s ease);
+
+    color: #fff;    
+    text-decoration: none;
+    &:hover {
+        color: $color_blue;
+    }
+}
