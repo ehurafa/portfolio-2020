@@ -1,0 +1,15 @@
+@import './colors';
+
+@mixin primary_link() {
+    color: #fff;
+    &:hover {
+        color: $color_blue;
+    }
+}
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+  }
