@@ -1,19 +1,29 @@
- <div class="content">
+
     <div class="container-fluid">    
      
-      <div class="row">       
+     
+                          
+          <!-- <div class="col col-one" >
             
-               
-          <div class="col-3" *ngFor="let post of posts">
-           
-            
-            <app-card [title]="post.acf.title_post"></app-card>
+            <app-card *ngFor="let post of colOne;let i=index;" [job]="post" [index]="i"></app-card>
           </div> 
+
+          <div class="col col-two"  >
+            
+            <app-card *ngFor="let post of colTwo" [job]="post"></app-card>
+          </div> 
+
+          <div class="col col-two">
+            
+            <app-card *ngFor="let post of colThree" [job]="post"></app-card>
+          </div>  -->
         
-
+       <div class="row">       
+          <div class="col-3"  *ngFor="let post of posts">
+            <app-card [job]="post['acf']" ></app-card>
+          </div>
       </div>
-
  
 
     </div>
-</div> 
+

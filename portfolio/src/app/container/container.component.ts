@@ -11,13 +11,49 @@ export class ContainerComponent implements OnInit {
 
   posts = [];
 
+  cols: any = [];
+  colOne: any = [];
+  colTwo: any = [];
+  colThree: any = [];
+
+  colsINdex: any = [];
+
   constructor(private postsService: PostsService ) { 
 
   }
 
   ngOnInit(): void {
     this.posts = this.postsService.getPosts();
-    console.table(this.posts['acf']);
+
+
+    for (const key in this.posts) {
+      if (this.posts.hasOwnProperty(key)) {
+        const element = this.posts[key];
+ 
+        this.cols.push(element.acf);
+      }
+    }
+    
+ 
+    for (let index = 0; index < this.cols.length; index++) {
+
+ 
+        this.colOne.push(this.cols[index]);
+        this.colTwo.push(this.cols[index +1] );
+        this.colThree.push(this.cols[index +2] ); 
+        
+        this.colsINdex.push(index);
+
+    }
+
+    console.log('posts.length ', this.posts.length);
+
+
+
+    // console.log('this.colOne ', this.colOne);
+    // console.log('this.colTwo ', this.colTwo);
+    // console.log('this.colThree ', this.colThree);
+
   }
 
 }

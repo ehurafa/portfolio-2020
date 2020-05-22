@@ -1,3 +1,4 @@
+import { Job } from './job.model';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -7,11 +8,28 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  @Input() title: string;
+  @Input() job;
+  @Input() index;
+
   
-  constructor() { }
+
+  cols: any = [];
+  colOne: String[];
+  colTwo: String[];
+  colThree: String[];
+
+  constructor() {    
+   }
+   cardHighlight() {
+     console.log('cardHighlight');
+   }
+   mouseEnter() {};
 
   ngOnInit(): void {
+   
+     console.log('job ', this.job);
+
+
   }
 
 }

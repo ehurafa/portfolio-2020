@@ -2,34 +2,25 @@
 @import '../../shared/mixins';
 @import '../../shared/placeholders';
 
-.sidebar {
-    background: $color_black;
-   // position: fixed;
-    height: 100vh;
-    width: 100%;
-    max-width: $sidebar_width;
-    text-align: center;
-    padding: 0 1rem;
 
-    .logo { 
-        margin: 2.5rem 0;    
-    }
-
-    .brand { 
-        margin-bottom: 2.5rem;
-    }
-
-    .navigation { 
-        nav {
-            display: inline-block;
-            width: 100%;
-            a {
-            @extend %primary_link;
-
-            display: inline-block;
-            width: 100%;
-            }
-        }    
-    }
-
+.logo { 
+    margin: 2.5rem 0;    
 }
+
+.brand { 
+    margin-bottom: 2.5rem;
+}
+
+.navigation { 
+    nav {
+        display: inline-block;
+        width: 100%;
+        a {
+        @extend %primary_link;
+
+        display: inline-block;
+        width: 100%;
+        }
+    }    
+}
+

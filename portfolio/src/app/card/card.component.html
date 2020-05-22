@@ -1,11 +1,13 @@
-<div class="card">
+<div class="card" (mouseenter)="cardHighlight()">
     <figure class="figure">
-        <img  src="assets/img/card.jpg" class="figure-img img-fluid" alt="" />
+        <a>
+            <img  src="{{ job?.image_post?.sizes?.medium }}" class="figure-img img-fluid" alt="{{ job?.image_post?.alt }}" />
+        </a>
     </figure>
     <article>
-        <h2>{{ title }}</h2>
-        <div class="tags">
-            <span href="#" title="Fron-end" class="badge badge-primary">Fron-end</span>
+        <h2>{{ job?.title_post}}</h2>
+        <div class="tags" >
+            <span *ngFor="let tag of job?.post_tags" title="{{tag?.tag}}" class="badge badge-primary">{{tag?.tag}}</span>
         </div>
     </article>
 </div>  

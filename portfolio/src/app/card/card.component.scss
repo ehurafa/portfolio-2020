@@ -5,6 +5,11 @@
 
     border: 0;
     border-radius: 0;
+    margin-bottom: 2rem;
+
+    &.elevation {
+        border: 5px solid red;
+    }
 
     article {
         width: 100%;
@@ -16,6 +21,9 @@
 
         .tags {
             margin-bottom: 1.0625rem;
+            span {
+                margin: 0 5px;
+            }
         }
     }
 }
