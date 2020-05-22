@@ -1,0 +1,10 @@
+@import '../../shared/config';
+@import '../../shared/colors';
+@import '../../shared/mixins';
+
+.content {
+    background: $color_grey;
+    float: right;  
+    padding: 1rem 0;
+}
+

@@ -1,0 +1,30 @@
+@import '../../shared/mixins';
+
+.card {
+    @include box-shadow(1px,1px,2px, rgba(157,157,157,0.2));
+
+    border: 0;
+    border-radius: 0;
+
+    article {
+        width: 100%;
+        text-align: center;
+        h2 {
+            font-size: 1.25rem;
+            margin: 1.875rem 0;
+        }
+
+        .tags {
+            margin-bottom: 1.0625rem;
+        }
+    }
+}
+@for $i from 1 through 25 {
+    .box-#{$i} .content {
+  
+      // Debugging styles
+      $size: random(10);
+      padding-bottom: 1.5em * $size;
+    }
+  }
+.masonry-item { width: 200px; }

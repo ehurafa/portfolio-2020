@@ -1,30 +1,35 @@
+@import '../../shared/config';
 @import '../../shared/mixins';
 @import '../../shared/placeholders';
 
-figure {
-    margin-bottom: 0;
-    img {
-        max-width: 100%;
+.sidebar {
+    background: $color_black;
+   // position: fixed;
+    height: 100vh;
+    width: 100%;
+    max-width: $sidebar_width;
+    text-align: center;
+    padding: 0 1rem;
+
+    .logo { 
+        margin: 2.5rem 0;    
     }
-}
 
-.logo { 
-    margin: 2.5rem 0;    
-}
+    .brand { 
+        margin-bottom: 2.5rem;
+    }
 
-.brand { 
-    margin-bottom: 2.5rem;
-}
+    .navigation { 
+        nav {
+            display: inline-block;
+            width: 100%;
+            a {
+            @extend %primary_link;
 
-.navigation { 
-    nav {
-        display: inline-block;
-        width: 100%;
-        a {
-           @extend %primary_link;
+            display: inline-block;
+            width: 100%;
+            }
+        }    
+    }
 
-           display: inline-block;
-           width: 100%;
-        }
-    }    
 }

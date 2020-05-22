@@ -1,5 +1,6 @@
 @import './colors';
 
+
 @mixin primary_link() {
     color: #fff;
     &:hover {
@@ -13,3 +14,115 @@
     -o-transition: $args;
     transition: $args;
   }
+  @mixin box-shadow($top:0px, $left:0px, $blur: 5px, $color: #000, $inset: false) {
+    @if $inset {
+        -webkit-box-shadow:inset $top $left $blur $color;
+        -moz-box-shadow:inset $top $left $blur $color;
+        box-shadow:inset $top $left $blur $color;
+    } @else {
+        -webkit-box-shadow: $top $left $blur $color;
+        -moz-box-shadow: $top $left $blur $color;
+        box-shadow: $top $left $blur $color;
+    }
+ }
+ 
+ @mixin border-radius($radius: 5px){
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+    border-radius: $radius;
+ }
+ @mixin box-sizing( $type: border-box ) {
+    -webkit-box-sizing: $type;
+    -moz-box-sizing: $type;
+    -o-box-sizing: $type;
+    -ms-box-sizing: $type;
+    box-sizing: $type;
+ }
+
+ // masonry 
+ @mixin masonry($columns: 3, $gap: 2%, $selector: '> *') {
+
+    @if unit($gap) == "rem" {
+      $gap: strip-units($gap) * 16px;
+    }
+    $gapunit: unit($gap);
+  
+    // Fallback to inline-blocks and text-align: justify
+    $box-width: 100 / $columns * 1%;
+    $box-width-perc: (100 - (($columns - 1) * $gap)) / $columns;
+    $box-subract: rem( $gap/ ($columns / ($columns - 1)));
+  
+    text-align: justify;
+    font-size: 0;
+  
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 100%;
+    }
+  
+    & #{$selector} {
+  
+      @include box-sizing(border-box);
+  
+      font-size: 16px;
+      font-size: 1rem;
+  
+      vertical-align: top;
+      display: inline-block;
+  
+      @if $gapunit == '%' {
+        width: $box-width-perc;
+      } @else {
+        width: calc(#{$box-width} - #{$box-subract});
+      }
+    }
+  
+    // Masonry
+    $margins: $gap / 2 * -1;
+    $paddings: ($columns * ($gap/2)) / ((100 + strip-units($gap)) / 100);
+  
+    .csscolumns & {
+  
+      &:after {
+        content: none;
+      }
+  
+      //@include column-count($columns);
+
+      column-count: $columns;
+  
+      @if $gapunit == "%" {
+        //@include column-gap(0);
+        column-gap: 0;
+        margin: {
+          left: $margins;
+          right: $margins;
+        }
+      } @else {
+        //@include column-gap($gap);
+        column-gap: 0;
+      }
+  
+      #{$selector} {
+  
+        @if $gapunit == '%' {
+          padding: {
+            left: $paddings;
+            right: $paddings;
+          }
+        }
+  
+        width: 100%;
+  
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        column-break-inside: avoid;
+        break-inside: avoid;
+  
+      }
+    }
+  }
+  
