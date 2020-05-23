@@ -7,13 +7,15 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ContainerComponent } from './container/container.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CardComponent } from './card/card.component';
+import { JobComponent } from './job/job.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     ContainerComponent,
-    CardComponent
+    CardComponent,
+    JobComponent
   ],
   imports: [
     BrowserModule,
