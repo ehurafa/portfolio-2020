@@ -4,3 +4,4 @@ export interface Job {
     post_tags: object 
     image_post: object
 }
+

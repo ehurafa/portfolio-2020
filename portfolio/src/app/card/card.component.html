@@ -1,13 +1,13 @@
 <div class="card" (mouseenter)="cardHighlight()">
     <figure class="figure">
-        <a>
-            <img  src="{{ job?.image_post?.sizes?.medium }}" class="figure-img img-fluid" alt="{{ job?.image_post?.alt }}" />
+        <a  routerLink="job/{{ job.id }}">
+            <img  src="{{ job.acf?.image_post?.sizes?.medium }}" class="figure-img img-fluid" alt="{{ job.acf?.image_post?.alt }}" />
         </a>
     </figure>
     <article>
-        <h2>{{ job?.title_post}}</h2>
+        <h2>{{ job.acf?.title_post}}</h2>
         <div class="tags" >
-            <span *ngFor="let tag of job?.post_tags" title="{{tag?.tag}}" class="badge badge-primary">{{tag?.tag}}</span>
+            <span *ngFor="let tag of job.acf?.post_tags" title="{{tag.acf?.tag}}" class="badge badge-primary">{{tag.acf?.tag}}</span>
         </div>
     </article>
 </div>  

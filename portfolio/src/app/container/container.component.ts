@@ -1,5 +1,7 @@
+import { Subject } from 'rxjs';
 import { PostsService } from './../../services/posts.service';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -9,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContainerComponent implements OnInit {
 
-  posts = [];
+  private posts: any = [];
 
   cols: any = [];
   colOne: any = [];
@@ -23,8 +25,12 @@ export class ContainerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.posts = this.postsService.getPosts();
 
+    this.postsService.getPosts()
+    .subscribe(posts => {
+      this.posts = posts;
+      console.log('posts ', posts) 
+    });
 
     for (const key in this.posts) {
       if (this.posts.hasOwnProperty(key)) {

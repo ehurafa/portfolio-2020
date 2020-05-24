@@ -1,6 +1,8 @@
 import { PostsService } from './../../services/posts.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Job } from './job.model';
+
 
 @Component({
   selector: 'app-job',
@@ -17,7 +19,7 @@ export class JobComponent implements OnInit {
 
   ngOnInit(): void {
     const id = + this.route.snapshot.paramMap.get('id');
-    this.postsService.readById(id).subscribe(job => {
+    this.postsService.getPost(id).subscribe(job => {
       this.job = job;
     });
   }
