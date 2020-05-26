@@ -1,6 +1,6 @@
 import { Job } from '../app/job/job.model';
 
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, EMPTY, Subject } from 'rxjs';
 import {map,   catchError } from 'rxjs/operators';
@@ -13,11 +13,15 @@ export class PostsService {
 
   baseUrl = "http://localhost:4200/job";
 
-  postsAPI = 'http://localhost:6001/jobs';
+  postsAPI = 'http://localhost:6001/jobs';  
 
-  colorPage: string;
+  colorEmmit = new EventEmitter<string>();
 
-  constructor( private http: HttpClient ) { }
+  color: string;
+
+  constructor( private http: HttpClient ) { 
+
+  }
 
   getPosts(): Observable<Job> {
 
@@ -51,11 +55,12 @@ export class PostsService {
     return EMPTY;
   }  
   
-  getColorPage(): string {
-    return this.colorPage;
+  getColorPage(): any {
+    return this.color;
   }
 
-  setColorPage(color): any {
-    this.colorPage = color;
+  setColorPage(color: any) {
+    this.color = color;
+    this.colorEmmit.emit(color);
   }
 }

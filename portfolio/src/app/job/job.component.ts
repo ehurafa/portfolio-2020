@@ -1,6 +1,6 @@
-import { Observable } from 'rxjs';
+import { Observable, Subscription, BehaviorSubject } from 'rxjs';
 import { PostsService } from './../../services/posts.service';
-import { Component, OnInit,  DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, ElementRef, ViewChild, Renderer2 } from '@angular/core';
+import { Component, OnInit,  DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, ElementRef, ViewChild, OnDestroy, Renderer2, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Job } from './job.model';
 import {Location} from '@angular/common';
@@ -15,13 +15,14 @@ import { Palette } from 'node-vibrant/lib/color';
 @Component({
   selector: 'app-job',
   templateUrl: './job.component.html',
-  styleUrls: ['./job.component.scss']
+  styleUrls: ['./job.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class JobComponent implements OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked {
 
   job: any;
 
-  pageBg: string;
+  pageBg: any;
 
   palette: any;
 
@@ -29,15 +30,28 @@ export class JobComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
 
   result: Observable<any>;
 
+  subscription: Subscription;
+
+  @ViewChild("section") section: ElementRef;
+
   @ViewChild("figure") figure: ElementRef;
 
+  @Output() bgColor = new EventEmitter();
+
+  @Input() nomeBehaviorSubject: BehaviorSubject<string>;
 
   constructor(private router: Router,
     private route: ActivatedRoute,
     private postsService: PostsService,
     private _location: Location,
     private renderer: Renderer2,
-    private el: ElementRef) { }
+    private el: ElementRef) { 
+   
+    }
+
+    setBack() {
+      this.postsService.setColorPage(this.pageBg);
+    }
 
     backClicked() {
       this._location.back();
@@ -67,11 +81,18 @@ export class JobComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
 
         Vibrant.from(image).getPalette()
         .then((palette) => {
-          this.palette = palette;        
-
+          this.palette = palette; 
+          
           this.setBg(this.figure.nativeElement, this.palette.DarkVibrant.getHex(),this.palette.Vibrant.getHex()); 
+          //this.setBg(this.section.nativeElement, this.palette.DarkVibrant.getHex(),this.palette.Vibrant.getHex()); 
           
           this.postsService.setColorPage = palette;
+
+          //this.bgColor.emit(palette);
+
+          this.postsService.colorEmmit.subscribe(
+            cor =>  console.log('corrr ', cor)
+          );
 
         })  
 
@@ -85,11 +106,14 @@ export class JobComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
       console.log( this.job);
       this.showVibrantColor(this.job?.acf?.image_post?.sizes?.large);
     });
+ 
+
 
    
 
   }
-     
+ 
+
   ngDoCheck(): void{ }
   ngAfterContentInit(): void { }
   ngAfterContentChecked(): void {}
@@ -99,3 +123,4 @@ export class JobComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
   ngAfterViewChecked(): void { }
   
   }
+

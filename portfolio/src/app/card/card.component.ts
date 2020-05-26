@@ -21,14 +21,12 @@ export class CardComponent implements OnInit {
   constructor() {    
    }
    cardHighlight() {
-     console.log('cardHighlight');
+    // console.log('cardHighlight');
    }
    mouseEnter() {};
 
   ngOnInit(): void {
    
-     console.log('job ', this.job);
-
 
   }
 
