@@ -14,6 +14,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { TemplatesComponent } from './templates/templates.component';
 import { FooterComponent } from './templates/footer/footer.component';
 import { AdaptiveBackgroundDirective } from './directives/adaptive-background.directive';
+import { PreloaderComponent } from './templates/preloader/preloader.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AdaptiveBackgroundDirective } from './directives/adaptive-background.di
     ContactComponent,
     TemplatesComponent,
     FooterComponent,
-    AdaptiveBackgroundDirective
+    AdaptiveBackgroundDirective,
+    PreloaderComponent
   ],
   imports: [
     BrowserModule,

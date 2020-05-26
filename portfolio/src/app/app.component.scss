@@ -9,6 +9,11 @@
     display: flex;
     width: 100%;
     flex-direction: row;
+
+    @include sm {
+        display: block;
+        float: left;
+    }
 }
 .sidebar {
     background: $color_black;
@@ -17,6 +22,14 @@
     width: 100%;
     max-width: $sidebar_width;
     padding: 0 40px;
+
+    @include sm {
+       height: auto;
+       max-width: 100%;
+       padding: 0 20px;
+       margin-bottom: 20px;
+    }
+
 }
 
 .content {   

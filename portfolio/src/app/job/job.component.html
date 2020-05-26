@@ -3,11 +3,11 @@
     <div class="row">       
         <div class="col-12" >
 
-            <div class="job">                
+            <app-preloader *ngIf="!job"></app-preloader>
 
-                <div *ngIf="palette" class="col-lg-8 details-top-container" [ngStyle]="{'background-image': 'linear-gradient(${palette.DarkVibrant.getHex()}, ${palette.LightVibrant.getHex()})'}"></div>
+            <div class="job" *ngIf="job">        
                 <figure class="imgWrap" #figure >                
-                    <img #myDiv3 [src]="job?.acf?.image_post?.sizes?.large"  />
+                    <img [src]="job?.acf?.image_post?.sizes['post-page']"  />
                 </figure>
                                    
                 <article>

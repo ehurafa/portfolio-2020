@@ -69,7 +69,9 @@ export class JobComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
         .then((palette) => {
           this.palette = palette;        
 
-          this.setBg(this.figure.nativeElement, this.palette.DarkVibrant.getHex(),this.palette.LightVibrant.getHex());          
+          this.setBg(this.figure.nativeElement, this.palette.DarkVibrant.getHex(),this.palette.Vibrant.getHex()); 
+          
+          this.postsService.setColorPage = palette;
 
         })  
 
@@ -80,10 +82,11 @@ export class JobComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
     const id = + this.route.snapshot.paramMap.get('id');
     this.postsService.getPost(id).subscribe(job => {
       this.job = job;
+      console.log( this.job);
       this.showVibrantColor(this.job?.acf?.image_post?.sizes?.large);
     });
 
-     
+   
 
   }
      
@@ -91,7 +94,7 @@ export class JobComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
   ngAfterContentInit(): void { }
   ngAfterContentChecked(): void {}
   ngAfterViewInit(): void { 
-    
+    console.log('this.postsService.getColorPage ',this.postsService.getColorPage());
   }
   ngAfterViewChecked(): void { }
   
