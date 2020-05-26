@@ -1,46 +1,25 @@
-
-
-
-<div class="container-fluid">    
-
+<div class="container-fluid">
     
     <div class="row">       
         <div class="col-12" >
 
-            <div class="job">
+            <div class="job">                
 
-                <div *ngIf="palette" class="col-lg-8 details-top-container" 
-[ngStyle]="styleContainer()">teste</div>
-                <figure class="imgWrap" #myDiv>
-                
+                <div *ngIf="palette" class="col-lg-8 details-top-container" [ngStyle]="{'background-image': 'linear-gradient(${palette.DarkVibrant.getHex()}, ${palette.LightVibrant.getHex()})'}"></div>
+                <figure class="imgWrap" #figure >                
                     <img #myDiv3 [src]="job?.acf?.image_post?.sizes?.large"  />
                 </figure>
-                <img [src]="job?.acf?.image_post?.sizes?.large" setAttribute alt=""  #myDiv2 />
-
-                <div  #myDiv5>
-                    <img src="http://rafaelgomes.net/wp-content/uploads/2017/09/thumbnail-1024x823.jpg" alt="" #myDiv6 >
-                </div>
-              
+                                   
                 <article>
                     <h1>
-                        {{ job?.acf?.title_post}}  -- {{ imageBase64 }} 
+                        {{ job?.acf?.title_post}}
                     </h1>
-                    <div [innerHTML]=" job?.acf?.post_content">
-                        
-                    </div>
-
-                    <div [innerHTML]="imageFake" #myDiv4  >
-                        
-                    </div>
-
-                    <div  style="padding: 10px; background: #f5da55">
-                        <h4 style="color: #000; ">Hello world!</h4>
-                    </div>
+                    <div [innerHTML]=" job?.acf?.post_content"></div>
+                                  
                 </article>
 
                 <button (click)="backClicked()">Voltar</button>
             </div>
-
 
         </div>
 
