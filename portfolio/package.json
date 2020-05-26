@@ -22,6 +22,12 @@
     "@angular/router": "~9.1.7",
     "@ng-bootstrap/ng-bootstrap": "^6.1.0",
     "bootstrap": "^4.4.0",
+    "canvas": "^2.6.1",
+    "fast-average-color": "^6.0.2",
+    "html2canvas": "^1.0.0-rc.5",
+    "image-to-base64": "^2.1.0",
+    "node-vibrant": "^3.1.5",
+    "rgbaster": "^2.1.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

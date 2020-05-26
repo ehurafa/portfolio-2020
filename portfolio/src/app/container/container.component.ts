@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ContainerComponent implements OnInit {
 
-  private posts: any = [];
+  posts: any = [];
 
   cols: any = [];
   colOne: any = [];

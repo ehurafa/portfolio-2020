@@ -19,9 +19,10 @@
     padding: 0 40px;
 }
 
-.content {
+.content {   
     background: $color_grey;
     float: right;  
+    width: 100%;
 }
 
 ::ng-deep {    
