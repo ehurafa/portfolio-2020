@@ -6,9 +6,10 @@
 
             <app-preloader *ngIf="!job"></app-preloader>
 
-            <div class="job" *ngIf="job">        
+            <div class="job transition" *ngIf="job">        
                 <figure class="imgWrap" #figure >                
-                    <img [src]="job?.acf?.image_post?.sizes['post-page']"  />
+                    <!-- <img [src]="job?.acf?.image_post?.sizes['post-page']"  /> -->
+                    <img [src]="imageBase64"  />
                 </figure>
                                    
                 <article>

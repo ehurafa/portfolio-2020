@@ -2,61 +2,81 @@
 @import '../../../shared/mixins';
 @import '../../../shared/placeholders';
 
-
-.logo { 
-    margin: 2.5rem 0; 
-    img {
-        @include border-radius(50%);
-    }
-}
-
-.brand { 
-    margin-bottom: 2rem;
-    p {
-        color: #fff;
-        font-size: 0.8rem;
-    }
-}
-
-.social {
-    margin: 0;
+.inner {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    text-align: left;
-    margin-bottom: 2rem;
-    a {
-        display: inline-block;
-        width: 34px;
-        height: 34px;
-        background-image: url('../../../assets/img/sprites.png');
-        margin-right: 10px;
-        &.linkedin {
-            background-position: 0 0;
-        }
-        &.pinterest {
-            background-position: 0 -34px;
-        }
-        &.twitter {
-            background-position: 0 -102x;
-        }
-        &.github {
-            background-position: 0 -136px;
+    height: 100vh;
+    padding: 0 40px;    
+        
+    .logo { 
+        margin: 2.5rem 0; 
+        img {
+            @include border-radius(50%);
         }
     }
-}
 
-.navigation { 
-    nav {
-        display: inline-block;
-        width: 100%;
-        a {
-        @extend %primary_link;
-
-        display: inline-block;
-        width: 100%;
+    .brand { 
+        margin-bottom: 2rem;
+        p {
+            color: #fff;
+            font-size: 0.8rem;
+            font-style: italic;
         }
-    }    
-    @include sm {
-        display: none;
-     }
-}
+    }
 
+    .social {
+        margin: 0;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 2rem;
+        a {
+            display: inline-block;
+            width: 34px;
+            height: 34px;
+            background-image: url('../../../assets/img/sprites.png');
+            margin-right: 10px;
+            &.linkedin {
+                background-position: 0 0;
+            }
+            &.pinterest {
+                background-position: 0 -34px;
+            }
+            &.twitter {
+                background-position: 0 -102x;
+            }
+            &.github {
+                background-position: 0 -136px;
+            }
+        }
+        @include sm {
+            text-align: center;
+        }
+    }
+
+    .navigation { 
+        nav {
+            display: inline-block;
+            width: 100%;
+            a {
+            @extend %primary_link;
+
+            display: inline-block;
+            width: 100%;
+            }
+        }    
+        @include sm {
+            display: none;
+        }
+    }
+
+    @include sm {
+        position: relative;
+        height: auto;
+        max-width: 100%;
+        padding: 0 20px;
+        text-align: center;
+     }
+
+}

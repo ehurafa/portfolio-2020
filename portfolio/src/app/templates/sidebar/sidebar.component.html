@@ -1,33 +1,30 @@
 
-<div class="logo">
-    <figure> 
-    <img src="assets/img/profile.jpg" alt="Foto de Perfil" />
-    </figure>
+<div class="inner">
+    <div class="logo">
+        <figure> 
+            <img src="assets/img/profile.jpg" alt="Foto de Perfil" />
+        </figure>
+    </div>
+
+    <div class="brand">
+        <figure> 
+            <img src="assets/img/logo.png" alt="Logotipo - Rafael Gomes" />
+        </figure>
+        <p>Front-end Developer</p>
+    </div>
+
+    <div class="social">
+    
+        <a [href]="icon.url" *ngFor="let icon of socialIcons" [ngClass]="['transition', icon.class]" target="_blank"></a>    
+                    
+    </div>
+
+    <div class="navigation">
+        <nav>
+            <a routerLink="/" title="">Inicial</a>
+            <a routerLink="/about" title="">Sobre mim</a>
+            <a routerLink="/contact" title="">Contato</a>
+        </nav>
+    </div>
 </div>
 
-<div class="brand">
-    <figure> 
-        <img src="assets/img/logo.png" alt="Logotipo - Rafael Gomes" />
-    </figure>
-    <p>Front-end Developer</p>
-</div>
-
-<div class="social">
-   
-    <a href="http://br.linkedin.com/in/rflrafa" class="transition linkedin" title="LinkedIn" target="_blank"></a>
-
-    <a href="https://www.pinterest.com/ehurafa" class="transition pinterest" title="Pinterest" target="_blank"></a>
-
-    <a href="https://twitter.com/ehurafa" class="transition twitter" title="Twitter" target="_blank"></a>
-
-    <a href="https://github.com/ehurafa?tab=repositories" class="transition github" title="Github" target="_blank"></a>
-                
-</div>
-
-<div class="navigation">
-    <nav>
-        <a routerLink="/" title="">Inicial</a>
-        <a routerLink="/about" title="">Sobre mim</a>
-        <a routerLink="/contact" title="">Contato</a>
-    </nav>
-</div>

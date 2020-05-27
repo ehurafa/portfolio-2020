@@ -57,8 +57,9 @@ export class JobComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
       this._location.back();
     }   
 
-    setBg(el, light, dark) {
-      this.renderer.setStyle(el, 'background-image', `linear-gradient(to  right bottom, ${dark}, ${light}`); 
+    setBg(el, dark, light) {
+      //this.renderer.setStyle(el, 'background-image', `linear-gradient(to  right bottom, ${dark}, ${light}`); 
+      this.renderer.setStyle(el, 'background-color', `${light}`); 
     }
 
    toDataURL = url => fetch(url)
@@ -82,8 +83,10 @@ export class JobComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
         Vibrant.from(image).getPalette()
         .then((palette) => {
           this.palette = palette; 
+
+          console.log(palette);
           
-          this.setBg(this.figure.nativeElement, this.palette.DarkVibrant.getHex(),this.palette.Vibrant.getHex()); 
+          this.setBg(this.figure.nativeElement, this.palette.DarkVibrant.getHex(),this.palette.Muted.getHex()); 
           //this.setBg(this.section.nativeElement, this.palette.DarkVibrant.getHex(),this.palette.Vibrant.getHex()); 
           
           this.postsService.setColorPage = palette;
