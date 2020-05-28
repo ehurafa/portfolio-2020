@@ -14,7 +14,16 @@
     -o-transition: $args;
     transition: $args;
   }
-  @mixin box-shadow($top:0px, $left:0px, $blur: 5px, $color: #000, $inset: false) {
+
+@mixin transform($args...) {
+  -webkit-transform: $args;
+	-moz-transform: $args;
+  -ms-transform: $args;
+  -o-transform: $args;
+	transform: $args;
+}
+
+@mixin box-shadow($top:0px, $left:0px, $blur: 5px, $color: #000, $inset: false) {
     @if $inset {
         -webkit-box-shadow:inset $top $left $blur $color;
         -moz-box-shadow:inset $top $left $blur $color;

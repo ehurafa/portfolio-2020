@@ -1,5 +1,5 @@
-@import '../../shared/mixins';
-@import '../../shared/colors';
+@import '../../helpers/mixins';
+@import '../../helpers/colors';
 
 .transition {
     @include transition(all 1.3s ease);

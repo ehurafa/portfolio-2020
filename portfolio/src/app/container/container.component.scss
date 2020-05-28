@@ -1,6 +1,6 @@
-@import '../../shared/config';
-@import '../../shared/colors';
-@import '../../shared/mixins';
+@import '../../helpers/config';
+@import '../../helpers/colors';
+@import '../../helpers/mixins';
 
 .content {
    background: $color_grey;  

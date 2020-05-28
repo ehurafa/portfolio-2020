@@ -15,7 +15,11 @@
 
     <div class="social">
     
-        <a [href]="icon.url" *ngFor="let icon of socialIcons" [ngClass]="['transition', icon.class]" target="_blank"></a>    
+        <a [href]="icon.url" *ngFor="let icon of socialIcons" [ngClass]="['transition hi-icon-effect-3 hi-icon-effect-3b', icon.class]" target="_blank">
+            <span class="hi-icon ">
+                <i [ngClass]="['fab', icon.pic]"></i>
+            </span>
+        </a>    
                     
     </div>
 

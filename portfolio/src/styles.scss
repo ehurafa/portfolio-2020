@@ -2,14 +2,18 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
-@import 'shared/config';
-@import 'shared/mixins';
-@import 'shared/placeholders';
-@import 'shared/colors';
-
+@import 'helpers/config';
+@import 'helpers/mixins';
+@import 'helpers/placeholders';
+@import 'helpers/colors';
+@import 'helpers/icons';
 
 :root {
     font-size: 16px;
+
+    @include sm {       
+        font-size: 14px;
+    }
 }
 
 body {
@@ -71,11 +75,11 @@ a {
     width: 100%;
     max-width: $sidebar_width;
 
-    @include sm {
-       height: auto;
+    @include sm {       
        max-width: 100%;       
        margin-bottom: 20px;
        text-align: center;
+      
     }
 
 }

@@ -1,0 +1,107 @@
+@import './colors';
+
+%link {
+    @include transition(all .3s ease);
+    text-decoration: none;
+}
+
+%primary_link {
+    @extend %link;
+
+    color: #fff;  
+    &:hover {
+        color: $color_blue;
+    }
+}
+%secondary_link {
+    @extend %link;
+
+    color:$color_black;   
+    &:hover {
+        color: #000;
+    }
+}
+
+%hi-icon {
+    display: inline-block;
+
+	cursor: pointer;
+	width: $icon_size;
+	height: $icon_size;
+	line-height: $icon_size;
+	border-radius: 50%;
+	text-align: center;
+	position: relative;
+	z-index: 1;
+    color: #fff;
+    &:after {
+        @include box-sizing(content-box);
+        @include border-radius(50%);
+    
+        pointer-events: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        content: '';
+    }
+    &:before {
+        speak: none;
+        line-height: 90px;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        display: block;
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+%hi-icon-effect-3__hi-icon {
+    @extend %hi-icon;
+
+    @include transition(color 0.3s);
+
+    box-shadow: 0 0 0 1px #fff;	
+    
+    &:after {
+        @include transition(0.2s, opacity 0.3s);
+
+        top: -2px;
+        left: -2px;
+        padding: 2px;
+        z-index: -1;
+        background: #fff;
+    }
+}
+
+%hi-icon-effect-3__hi-icon--b { 
+    @extend  %hi-icon-effect-3__hi-icon;
+
+    color: #fff;
+   
+    &:hover {
+
+
+        .fa-linkedin-in {
+            color: $linkedin_color;
+        }
+        .fa-pinterest-p {
+            color: $pinterest_color;
+        }
+        .fa-github-alt {
+            color: $github_color;
+        }
+       
+        &:after {
+            @include transform( scale(1));
+            
+            opacity: 1;
+        }
+    }   
+
+    &:after {
+        @include transform( scale(1.3));
+    
+        opacity: 0;
+    }
+}

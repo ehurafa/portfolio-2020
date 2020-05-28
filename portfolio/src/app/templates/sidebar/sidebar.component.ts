@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit {
 
   socialIcons: any[] = [
-    {'url': 'http://br.linkedin.com/in/rflrafa', 'title': 'LinkedIn', 'class':'linkedin'},
-    {'url': 'https://www.pinterest.com/ehurafa', 'title': 'Pinterest', 'class':'pinterest'},
+    {'url': 'http://br.linkedin.com/in/rflrafa', 'title': 'LinkedIn', 'class':'linkedin ', 'pic': 'fa-linkedin-in'},
+    {'url': 'https://www.pinterest.com/ehurafa', 'title': 'Pinterest', 'class':'pinterest',  'pic': 'fa-pinterest-p'},
     //{'url': 'https://twitter.com/ehurafa', 'title': 'Twitter', 'class':'twitter'},
-    {'url': 'https://github.com/ehurafa?tab=repositories', 'title': 'Github', 'class':'github'}  
+    {'url': 'https://github.com/ehurafa?tab=repositories', 'title': 'Github', 'class':'github', 'pic': 'fa-github-alt'}  
   ];
 
   constructor() { }

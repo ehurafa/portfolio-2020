@@ -1,8 +1,8 @@
-@import '../../../shared/config';
-@import '../../../shared/mixins';
-@import '../../../shared/placeholders';
+@import '../../../helpers/config';
+@import '../../../helpers/mixins';
+@import '../../../helpers/placeholders';
 
-.inner {
+.inner {  
     position: fixed;
     top: 0;
     left: 0;
@@ -14,6 +14,11 @@
         margin: 2.5rem 0; 
         img {
             @include border-radius(50%);
+            
+            @include sm {
+                max-width: 150px;
+            }
+
         }
     }
 
@@ -21,7 +26,7 @@
         margin-bottom: 2rem;
         p {
             color: #fff;
-            font-size: 0.8rem;
+            font-size: 12px;
             font-style: italic;
         }
     }
@@ -32,27 +37,40 @@
         text-align: left;
         margin-bottom: 2rem;
         a {
-            display: inline-block;
-            width: 34px;
-            height: 34px;
-            background-image: url('../../../assets/img/sprites.png');
-            margin-right: 10px;
-            &.linkedin {
-                background-position: 0 0;
-            }
-            &.pinterest {
-                background-position: 0 -34px;
-            }
-            &.twitter {
-                background-position: 0 -102x;
-            }
-            &.github {
-                background-position: 0 -136px;
-            }
+           
+            //display: inline-block; 
+            margin-right: 15px;
+           // border: 1px solid red;
+            // width: 38px;
+            // height: 38px;
+            // line-height: 38px;
+            // text-align: center;
+            // margin-right: 10px;
+            // font-size: 1.3rem;
+            // background: #fff;
+           // background-image: url('../../../assets/img/sprites.png');
+            // &.linkedin {
+            //     background-position: 0 0;
+            // }
+            // &.pinterest {
+            //     background-position: 0 -34px;
+            // }
+            // &.twitter {
+            //     background-position: 0 -102x;
+            // }
+            // &.github {
+            //     background-position: 0 -136px;
+            // }
+
+            // i {
+            //     color: $color_black;
+            // }
         }
         @include sm {
-            text-align: center;
+            text-align: center;          
         }
+
+        
     }
 
     .navigation { 
@@ -72,11 +90,17 @@
     }
 
     @include sm {
-        position: relative;
+
         height: auto;
         max-width: 100%;
         padding: 0 20px;
         text-align: center;
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        flex-direction: column;
      }
 
 }
+
+
