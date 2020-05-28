@@ -26,7 +26,7 @@ export class CardComponent implements OnInit {
    mouseEnter() {};
 
   ngOnInit(): void {
-   
+   console.log(this.job);
 
   }
 

@@ -32,9 +32,15 @@ export class JobComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
 
   subscription: Subscription;
 
+  technologies: String[];
+
   @ViewChild("section") section: ElementRef;
 
   @ViewChild("figure") figure: ElementRef;
+
+  @ViewChild("title") title: ElementRef;
+
+  @ViewChild("toback") toback: ElementRef;  
 
   @Output() bgColor = new EventEmitter();
 
@@ -59,7 +65,7 @@ export class JobComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
 
     setBg(el, dark, light) {
       //this.renderer.setStyle(el, 'background-image', `linear-gradient(to  right bottom, ${dark}, ${light}`); 
-      this.renderer.setStyle(el, 'background-color', `${light}`); 
+      this.renderer.setStyle(el, 'background-color', `rgba(${light[0]},${light[1]},${light[2]},0.6)`);             
     }
 
    toDataURL = url => fetch(url)
@@ -86,8 +92,17 @@ export class JobComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
 
           console.log(palette);
           
-          this.setBg(this.figure.nativeElement, this.palette.DarkVibrant.getHex(),this.palette.Muted.getHex()); 
+          this.setBg(this.figure.nativeElement, this.palette.DarkVibrant.getHex(),this.palette.Muted.rgb);           
+
           //this.setBg(this.section.nativeElement, this.palette.DarkVibrant.getHex(),this.palette.Vibrant.getHex()); 
+          //this.renderer.setStyle(this.title.nativeElement, 'background-color', this.palette.Vibrant.getHex());    
+          
+          //this.renderer.setStyle(this.title.nativeElement, 'background-color', this.palette.DarkVibrant.getHex() ); 
+          //this.renderer.setStyle(this.title.nativeElement, 'color', this.palette.DarkVibrant.titleTextColor); 
+
+          this.renderer.setStyle(this.toback.nativeElement, 'background-color', this.palette.DarkVibrant.getHex());
+          this.renderer.setStyle(this.toback.nativeElement, 'color', this.palette.DarkVibrant.titleTextColor);
+          
           
           this.postsService.setColorPage = palette;
 
@@ -107,12 +122,14 @@ export class JobComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
     this.postsService.getPost(id).subscribe(job => {
       this.job = job;
       console.log( this.job);
+
+      this.technologies = this.job?.acf?.list_of_technologies;
+      
       this.showVibrantColor(this.job?.acf?.image_post?.sizes?.large);
+
+      console.log(this.job?.acf?.list_of_technologies);
+     
     });
- 
-
-
-   
 
   }
  

@@ -6,21 +6,33 @@
 
             <app-preloader *ngIf="!job"></app-preloader>
 
-            <div class="job transition" *ngIf="job">        
-                <figure class="imgWrap" #figure >                
-                    <!-- <img [src]="job?.acf?.image_post?.sizes['post-page']"  /> -->
-                    <img [src]="imageBase64"  />
-                </figure>
+            <div class="job transition" *ngIf="job">    
+                <div class="image" [ngStyle]="{'background-image': 'url(' + imageBase64 + ')'}">                    
+                    <figure class="imgWrap" #figure >                
+                        <!-- <img [src]="job?.acf?.image_post?.sizes['post-page']"  /> -->
+                        <img [src]="imageBase64"  />
+                    </figure>
+                </div>               
                                    
                 <article>
                     <h1>
-                        {{ job?.acf?.title_post}}
+                       <span #title>
+                            {{ job?.acf?.title_post}}
+                       </span>
                     </h1>
                     <div [innerHTML]=" job?.acf?.post_content"></div>
+
+                    <div class="technologies">
+                        <p>Técnologias utilizadas no projeto</p>
+                        <nav><a *ngFor="let tec of technologies" class="badge">{{ tec.name }}</a> </nav>
+                    </div>
                                   
                 </article>
 
-                <button (click)="backClicked()">Voltar</button>
+                <button type="button" class="btn btn-lg btn-block mb-3 to-back" (click)="backClicked()" #toback>
+                    <i class="fas fa-chevron-left"></i>
+
+                    Voltar</button>
             </div>
 
         </div>

@@ -1,11 +1,23 @@
 @import './colors';
 
-%primary_link {
+%link {
     @include transition(all .3s ease);
-
-    color: #fff;    
     text-decoration: none;
+}
+
+%primary_link {
+    @extend %link;
+
+    color: #fff;  
     &:hover {
         color: $color_blue;
+    }
+}
+%secondary_link {
+    @extend %link;
+
+    color:$color_black;   
+    &:hover {
+        color: #000;
     }
 }

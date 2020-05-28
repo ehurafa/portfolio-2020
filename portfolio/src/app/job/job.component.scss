@@ -4,26 +4,62 @@
 .transition {
     @include transition(all 1.3s ease);
 }
+
+// @keyframes colors {
+//     0% {
+//       background-color: #001F3F;
+//     }
+//     50% {
+//       background-color: #FF4136;
+//     }
+//     100% {
+//       background-color: #001F3F;
+//     }
+//   }
 .job { 
-    figure {
+    .image { 
         width: 100%;
         display: block;
-        text-align: center;
-        padding: 0;
-    
+        text-align: center;    
+        -webkit-filter: saturate(2);
+        filter: saturate(2);    
+        background-size: cover;
+        background-position: 50% 50%;
+
+        figure {
+            display: block;
+            padding: 0;
+            img {
+                -webkit-filter: saturate(0.3);
+                filter: saturate(0.3); 
+                -webkit-filter: drop-shadow(0 0 10px rgba(0,0,0,0.4));
+                filter: drop-shadow(0 0 10px rgba(0,0,0,0.4)); 
+            }
+        }
     }
 
     article {
-        padding: 2rem 0;
+        padding: 3rem 0 2rem 0;
 
         h1 {
+           font-size: 4rem;
+           margin-bottom: 1.5rem;
+           span {
+            // padding: 0 0.5rem;
+            // display: inline-block;
+            // line-height: 2.7rem;
+            // height: 3.2rem;
+            color: #000;
+           }
+
             @include sm {
                 font-size: 1.5rem;
              }
         }
 
         h3 {
-            font-size: 1.2rem;
+            font-size: 1.2rem;  
+            font-weight: 300;         
 
             a {
                 @include transition(all .3s ease);
@@ -39,13 +75,51 @@
             }
 
             @include sm {
-                font-size: 1rem;
+                font-size: 1rem;                
              }
         }
 
         p {
             margin-top: 2rem;
+            font-weight: 300;    
+            strong {
+                font-weight: 500;
+            }  
+            a {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .to-back {
+        @include transition(all 1s ease);
+        @include border-radius(0);
+
+        font-size: 0.8rem;
+        opacity: 0.9;
+       
+        i {
+            margin-right: 0.5rem;
+        }
+
+        &:hover {
+            opacity: 1;
         }
     }
     
  }
+ .technologies {    
+    nav {
+        display: block;
+        padding: 0;
+
+        .badge {
+            background: $color_black;
+            color: #fff;
+            margin: 0 0.8rem 0 0;
+            &:hover {
+                color: #fff;
+            }
+        }  
+    }     
+}

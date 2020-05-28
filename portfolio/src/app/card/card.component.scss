@@ -8,15 +8,33 @@
     margin-bottom: 2rem;
 
     &.elevation {
-        border: 5px solid red;
+       
     }
 
+    figure {  
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+
+        img {
+            @include transition(all 1s ease);
+        }
+
+        &:hover {
+            img {
+                transform: scale(1.1);
+            }
+        }
+    }
     article {
         width: 100%;
         text-align: center;
         h2 {
             font-size: 1.25rem;
             margin: 1.875rem 0;
+            a {
+                text-decoration: none;
+            }
         }
 
         .tags {
