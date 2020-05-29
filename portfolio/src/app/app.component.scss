@@ -1,0 +1,13 @@
+@import '../helpers/mixins';
+
+::ng-deep {
+    .container-fluid { 
+       
+        padding: 40px;
+
+        @include md {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+}

@@ -2,20 +2,23 @@
 @import '../../../helpers/mixins';
 @import '../../../helpers/placeholders';
 
-.inner {  
+.inner {    
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    max-width: $sidebar_width;
     height: 100vh;
-    padding: 0 40px;    
+    padding: 0 40px;     display: none; 
         
     .logo { 
         margin: 2.5rem 0; 
         img {
             @include border-radius(50%);
+
+            border: 2px solid #fff;
             
-            @include sm {
+            @include md {
                 max-width: 150px;
             }
 
@@ -66,7 +69,7 @@
             //     color: $color_black;
             // }
         }
-        @include sm {
+        @include md {
             text-align: center;          
         }
 
@@ -78,19 +81,20 @@
             display: inline-block;
             width: 100%;
             a {
-            @extend %primary_link;
+                @extend %primary_link;
 
-            display: inline-block;
-            width: 100%;
+                display: inline-block;
+                width: 100%;
+                margin-bottom: 0.5rem;
             }
         }    
-        @include sm {
-            display: none;
+        @include md {
+            //display: none;
         }
     }
 
-    @include sm {
-
+    @include md {
+        position: relative;
         height: auto;
         max-width: 100%;
         padding: 0 20px;

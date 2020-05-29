@@ -1,7 +1,5 @@
 
     <div class="container-fluid">    
-     
-     
                           
           <!-- <div class="col col-one" >
             
@@ -18,9 +16,9 @@
             <app-card *ngFor="let post of colThree" [job]="post"></app-card>
           </div>  -->
 
-      <app-preloader *ngIf="!posts"></app-preloader>
+      <!-- //## <app-preloader *ngIf="!posts"></app-preloader> -->
         
-       <div class="row" *ngIf="posts">       
+      <div class="row" *ngIf="posts">       
           <div class="col-lg-3 col-md-4 col-sm-6  col-12"  *ngFor="let post of posts">
             <app-card [job]="post" ></app-card>
           </div>
@@ -28,4 +26,6 @@
  
 
     </div>
+
+
 

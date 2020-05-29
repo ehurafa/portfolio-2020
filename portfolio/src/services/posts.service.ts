@@ -1,9 +1,10 @@
+import { environment } from './../environments/environment';
 import { Job } from '../app/job/job.model';
 
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, EMPTY, Subject } from 'rxjs';
-import {map,   catchError } from 'rxjs/operators';
+import { Observable, EMPTY } from 'rxjs';
+import {map, catchError } from 'rxjs/operators';
 
 
 @Injectable({
@@ -11,25 +12,30 @@ import {map,   catchError } from 'rxjs/operators';
 })
 export class PostsService {
 
-  baseUrl = "http://localhost:4200/job";
-
-  postsAPI = 'http://localhost:6001/jobs';  
+  postsAPI = "http://localhost:6001/jobs"; //environment.postsAPI;
 
   colorEmmit = new EventEmitter<string>();
 
   color: string;
 
-  constructor( private http: HttpClient ) { 
+  constructor( 
+    private http: HttpClient 
+    ) { 
 
   }
 
   getPosts(): Observable<Job> {
-
-  return  this.http.get<Job>(this.postsAPI).pipe(
-      map(obj => obj)
-    );
+    console.log('p ', this.postsAPI);
+    let res =   this.http.get<Job>(this.postsAPI).pipe(
+        map(obj => {
+          console.log(obj);
+          return obj
+        })
+      );
+      console.log('res ', res);
+      return res;
    
-  }  
+  };  
 
   getPost(id: number): Observable<Job> {
     const url = `${this.postsAPI}/${id}`;
@@ -55,9 +61,9 @@ export class PostsService {
     return EMPTY;
   }  
   
-  getColorPage(): any {
-    return this.color;
-  }
+  // getColorPage(): any {
+  //   return this.color;
+  // }
 
   setColorPage(color: any) {
     this.color = color;

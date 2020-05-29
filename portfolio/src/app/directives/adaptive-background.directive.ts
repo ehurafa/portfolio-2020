@@ -10,8 +10,8 @@ export class AdaptiveBackgroundDirective implements OnInit {
 
   result: any;
 
-  constructor(private el: ElementRef) { 
-    el.nativeElement.innerHTML;
+  constructor() { 
+   // el.nativeElement.innerHTML;
   }
 
   ngOnInit(): void {

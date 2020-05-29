@@ -16,14 +16,18 @@ const routes: Routes = [
     path: "job/:id",
     component: JobComponent
   },
-  {
-    path: "about",
-    component: AboutComponent
-  },
-  {
-    path: "contact",
-    component: ContactComponent
-  },
+  // {
+  //   path: "about",
+  //   component: AboutComponent
+  // },
+  // {
+  //   path: "about/:id",
+  //   component: AboutComponent
+  // },
+  // {
+  //   path: "contact",
+  //   component: ContactComponent
+  // },
 ];
 
 @NgModule({

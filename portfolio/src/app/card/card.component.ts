@@ -7,10 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-
-  @Input() job
+ 
+  @Input() job;
+  /*  //##
   @Input() index;
-
+*/
   
 
   cols: any = [];
@@ -26,7 +27,7 @@ export class CardComponent implements OnInit {
    mouseEnter() {};
 
   ngOnInit(): void {
-   console.log(this.job);
+   //## console.log(this.job);
 
   }
 

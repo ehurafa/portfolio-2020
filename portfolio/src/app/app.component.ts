@@ -1,6 +1,7 @@
-import { PostsService } from './../services/posts.service';
+//## import { environment } from './../environments/environment';
+//import { PostsService } from './../services/posts.service';
 import { Component, OnInit } from '@angular/core';
-import { AdaptiveBackgroundDirective } from './directives/adaptive-background.directive';
+//## import { AdaptiveBackgroundDirective } from './directives/adaptive-background.directive';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -13,21 +14,25 @@ export class AppComponent implements OnInit {
 
   bgColor: string;
 
-  nomeBehaviorSubjectPai= new BehaviorSubject<string>("rafa");
+  environment: string;
 
-  constructor(private postsService: PostsService) {
+  //## nomeBehaviorSubjectPai= new BehaviorSubject<string>("rafa");
+
+  constructor(//private postsService: PostsService
+    ) {
   
+   
    
   }
 
   ngOnInit(): void {
-    let cor = this.postsService.getColorPage();
-    console.log(cor);
+   // let cor = this.postsService.getColorPage();
+    
   }
 
-  setBgColor() {
-    console.log('BG COLOR ', this.bgColor );
-    this.postsService.setColorPage(this.bgColor);
+  setBgColor() { 
+    //## console.log('BG COLOR ', this.bgColor );
+  //  this.postsService.setColorPage(this.bgColor);
   }
 
 }

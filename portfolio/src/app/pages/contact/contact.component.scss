@@ -1,0 +1,21 @@
+@import '../../../helpers/colors';
+
+.contact {
+    padding: 5rem 0;
+
+    h2 {
+        font-size: 5rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+        font-style: italic;
+        a {
+            text-decoration: underline;
+
+            &:hover {
+                color: $color_blue;
+            }
+        }
+    }
+}

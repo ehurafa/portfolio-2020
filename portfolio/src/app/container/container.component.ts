@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 
+
+
 @Component({
   selector: 'app-container',
   templateUrl: './container.component.html',
@@ -20,17 +22,18 @@ export class ContainerComponent implements OnInit {
 
   colsINdex: any = [];
 
-  constructor(private postsService: PostsService ) { 
+  constructor(private postsService: PostsService
+     ) { 
 
   }
 
   ngOnInit(): void {
-
-    this.postsService.getPosts()
+    console.log('posts ', this.posts);
+   this.postsService.getPosts()
     .subscribe(posts => {
       this.posts = posts;
       console.log('posts ', posts) 
-    });
+    }); 
 
     for (const key in this.posts) {
       if (this.posts.hasOwnProperty(key)) {
@@ -42,8 +45,7 @@ export class ContainerComponent implements OnInit {
     
  
     for (let index = 0; index < this.cols.length; index++) {
-
- 
+       
         this.colOne.push(this.cols[index]);
         this.colTwo.push(this.cols[index +1] );
         this.colThree.push(this.cols[index +2] ); 
@@ -53,8 +55,6 @@ export class ContainerComponent implements OnInit {
     }
 
     console.log('posts.length ', this.posts.length);
-
-
 
     // console.log('this.colOne ', this.colOne);
     // console.log('this.colTwo ', this.colTwo);
