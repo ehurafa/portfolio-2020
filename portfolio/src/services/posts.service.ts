@@ -23,7 +23,7 @@ export class PostsService {
     ) { 
 
   }
-
+ 
   getPosts(): Observable<Job> {
 
     return  this.http.get<Job>(this.postsAPI).pipe(

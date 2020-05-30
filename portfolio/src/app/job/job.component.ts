@@ -122,9 +122,9 @@ export class JobComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
 
       this.technologies = this.job?.acf?.list_of_technologies;
       
-      this.showVibrantColor(this.job?.acf?.image_post?.sizes?.large);
+      //this.showVibrantColor(this.job?.acf?.image_post?.sizes?.large);
      
-    });  
+    });     
 
   }
  
