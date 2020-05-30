@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
 
   setBgColor() { 
     //## console.log('BG COLOR ', this.bgColor );
-  //  this.postsService.setColorPage(this.bgColor);
+    //  this.postsService.setColorPage(this.bgColor);
   }
 
 }

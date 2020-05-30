@@ -3,9 +3,6 @@ import { PostsService } from './../../services/posts.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-
-
-
 @Component({
   selector: 'app-container',
   templateUrl: './container.component.html',
@@ -27,12 +24,12 @@ export class ContainerComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
-    console.log('posts ', this.posts);
-   this.postsService.getPosts()
+  ngOnInit(): void { 
+     
+    this.postsService.getPosts()
     .subscribe(posts => {
       this.posts = posts;
-      console.log('posts ', posts) 
+  
     }); 
 
     for (const key in this.posts) {
@@ -54,7 +51,6 @@ export class ContainerComponent implements OnInit {
 
     }
 
-    console.log('posts.length ', this.posts.length);
 
     // console.log('this.colOne ', this.colOne);
     // console.log('this.colTwo ', this.colTwo);

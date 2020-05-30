@@ -24,10 +24,10 @@ const routes: Routes = [
   //   path: "about/:id",
   //   component: AboutComponent
   // },
-  // {
-  //   path: "contact",
-  //   component: ContactComponent
-  // },
+   {
+    path: "contact",
+    component: ContactComponent
+  },
 ];
 
 @NgModule({

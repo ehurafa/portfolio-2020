@@ -13,7 +13,7 @@ export class ContactComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onSubmit(contactForm) {console.log('response');
+  onSubmit(contactForm) {
     if (contactForm.valid) {
       const email = contactForm.value;
       const headers = new HttpHeaders({ 'Content-Type': 'application/json' });

@@ -89,8 +89,6 @@ export class JobComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
         Vibrant.from(image).getPalette()
         .then((palette) => {
           this.palette = palette; 
-
-          console.log(palette);
           
           this.setBg(this.figure.nativeElement, this.palette.DarkVibrant.getHex(),this.palette.Muted.rgb);           
 
@@ -109,7 +107,7 @@ export class JobComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
           //this.bgColor.emit(palette);
 
           this.postsService.colorEmmit.subscribe(
-            cor =>  console.log('corrr ', cor)
+            cor =>  cor//console.log('corrr ', cor)
           ); 
 
         })  
@@ -121,13 +119,10 @@ export class JobComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
     const id = + this.route.snapshot.paramMap.get('id');
       this.postsService.getPost(id).subscribe(job => {
       this.job = job;
-      console.log( this.job);
 
       this.technologies = this.job?.acf?.list_of_technologies;
       
       this.showVibrantColor(this.job?.acf?.image_post?.sizes?.large);
-
-      console.log(this.job?.acf?.list_of_technologies);
      
     });  
 

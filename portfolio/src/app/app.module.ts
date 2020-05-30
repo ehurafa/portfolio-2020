@@ -14,8 +14,9 @@ import { ContainerComponent } from './container/container.component';
 
 import { JobComponent } from './job/job.component';
 import { PreloaderComponent } from './templates/preloader/preloader.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
-/* import { ContactComponent } from './pages/contact/contact.component';
+/*
 import { AboutComponent } from './pages/about/about.component';
 import { TemplatesComponent } from './templates/templates.component';
 import { FooterComponent } from './templates/footer/footer.component';
@@ -30,8 +31,9 @@ import { AdaptiveBackgroundDirective } from './directives/adaptive-background.di
     ContainerComponent,
     CardComponent,
     JobComponent,
+     ContactComponent,
     //AboutComponent,
-    //ContactComponent,
+   
    //TemplatesComponent,
    // FooterComponent,
     //AdaptiveBackgroundDirective,
@@ -43,7 +45,7 @@ import { AdaptiveBackgroundDirective } from './directives/adaptive-background.di
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    HttpClientTestingModule,
+    //HttpClientTestingModule,
     FormsModule
   ],
   providers: [],

@@ -1,7 +1,15 @@
-<div class="card" (mouseenter)="cardHighlight()">
+<div class="card" (mouseenter)="cardHighlight()" >
    <figure class="figure">
-        <a routerLink="job/{{ job?.id }}">
-            <img  src="{{ job?.acf?.image_square_400?.url }}" class="figure-img img-fluid" alt="{{ job?.acf?.image_post?.alt }}" />
+        <a routerLink="job/{{ job?.id }}" *ngIf="job?.acf?.image_square_400?.url">
+            
+            <img  src="{{ job?.acf?.image_square_400?.url }}" class="figure-img img-fluid" alt="{{ job?.acf?.image_post?.alt }}"  />
+           
+        </a>
+
+        <a routerLink="job/{{ job?.id }}"  *ngIf="!job?.acf?.image_square_400?.url">
+            
+            <img  src="{{ job?.acf?.image_post.sizes.quin }}" class="figure-img img-fluid" alt="{{ job?.acf?.image_post?.alt }}"  />
+           
         </a>
     </figure>
     <article>
@@ -12,7 +20,9 @@
             <span *ngFor="let tag of job?.acf?.post_tags" title="{{tag?.acf?.tag}}" class="badge badge-primary">{{tag?.acf?.tag}}</span>
         </div>
     </article>  
-</div>  
+</div> 
+
+
 
 
 
