@@ -12,6 +12,7 @@ O projeto ainda está em desenvolvimento...
 
 | Tasks                                               | Status  |
 |--------------------------------------------------------|-------------|
+| :bomb: Angular Testing | Re-testing  |
 | :art: Color Template - Renderer to Adaptive Background Image | Re-testing  |
 | :calling: Responsive Improvements                                | Development |
 | :mailbox_with_mail: API OrderBy                                            | Development |
@@ -22,4 +23,3 @@ O projeto ainda está em desenvolvimento...
 | :art: Mansonry Layout                                        | Stand by    |
 | :performing_arts: Animations                                             | Stand by    |
 | :hourglass: New Loader All Application                             | Stand by    |
-
