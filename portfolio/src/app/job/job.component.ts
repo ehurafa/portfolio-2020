@@ -117,6 +117,7 @@ export class JobComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
   
   ngOnInit(): void {      
     const id = + this.route.snapshot.paramMap.get('id');
+
       this.postsService.getPost(id).subscribe(job => {
       this.job = job;
 

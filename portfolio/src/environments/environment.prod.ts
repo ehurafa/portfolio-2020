@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  postsAPI: '/wp-json/acf/v3/posts?per_page=100'
+  postsAPI: '/postsapi/wp-json/acf/v3/posts?per_page=100',
+  postAPI: '/postsapi/wp-json/acf/v3/posts'
 };

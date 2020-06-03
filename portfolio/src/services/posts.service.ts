@@ -12,6 +12,7 @@ import {map, catchError } from 'rxjs/operators';
 })
 export class PostsService {
 
+  postAPI = environment.postAPI;
   postsAPI = environment.postsAPI;
 
   colorEmmit = new EventEmitter<string>();
@@ -33,7 +34,7 @@ export class PostsService {
     } 
 
   getPost(id: number): Observable<Job> {
-    const url = `${this.postsAPI}/${id}`;
+    const url = `${this.postAPI}/${id}`;
     return this.http.get<Job>(url).pipe(
       map(obj => obj),
       catchError(e =>  this.errorHandler(e))
@@ -47,7 +48,7 @@ export class PostsService {
     //   verticalPosition: "top",
     //   panelClass: isError ? ['msg-error'] : ['msg-success']
     // })
-    //console.log('ERROR ', msg);
+    console.log('ERROR ', msg);
   }
 
   errorHandler(e: any): Observable<any> {
