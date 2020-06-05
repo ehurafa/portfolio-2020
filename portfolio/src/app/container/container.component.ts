@@ -1,12 +1,23 @@
 import { Subject } from 'rxjs';
 import { PostsService } from './../../services/posts.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-container',
   templateUrl: './container.component.html',
-  styleUrls: ['./container.component.scss']
+  styleUrls: ['./container.component.scss'],
+  animations: [
+    trigger('pageAnimations', [
+      transition(':enter', [
+        // animation for the page entering
+      ]),
+      transition(':leave', [
+        // animation for the page leaving
+      ])
+    ])
+  ]
 })
 export class ContainerComponent implements OnInit {
 
@@ -18,6 +29,9 @@ export class ContainerComponent implements OnInit {
   colThree: any = [];
 
   colsINdex: any = [];
+
+  @HostBinding('@pageAnimations')
+  public animatePage = true;
 
   constructor(private postsService: PostsService
      ) { 

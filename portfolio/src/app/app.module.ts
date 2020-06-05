@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -37,7 +38,8 @@ import { AdaptiveBackgroundDirective } from './directives/adaptive-background.di
    //TemplatesComponent,
    // FooterComponent,
     //AdaptiveBackgroundDirective,
-    PreloaderComponent,
+    PreloaderComponent
+    
    
   ],
   imports: [
@@ -46,7 +48,8 @@ import { AdaptiveBackgroundDirective } from './directives/adaptive-background.di
     NgbModule,
     HttpClientModule,
     //HttpClientTestingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -17,9 +17,10 @@ O projeto ainda está em desenvolvimento...
 | :calling: Responsive Improvements                                | Development |
 | :mailbox_with_mail: API OrderBy                                            | Development |
 | :hammer: Refactory Services                                     | Development |
+| :performing_arts: Animations                                             | Development    |
 | :traffic_light: Controll States                                        | Stand by    |
 | :mag: Filter Jobs                                            | Stand by    |
 | :pencil2: Insert All Jobs                                        | Stand by    |
 | :art: Mansonry Layout                                        | Stand by    |
-| :performing_arts: Animations                                             | Stand by    |
 | :hourglass: New Loader All Application                             | Stand by    |
+| :arrow_left: Collapse Sidebar                            | Stand by    |

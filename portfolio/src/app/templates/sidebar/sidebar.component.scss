@@ -2,14 +2,16 @@
 @import '../../../helpers/mixins';
 @import '../../../helpers/placeholders';
 
-.inner {    
+.inner {   
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     max-width: $sidebar_width;
     height: 100vh;
-    padding: 0 40px;    
+    padding: 0 40px; 
+    background: $color_black; 
+    z-index: 2;     
         
     .logo { 
         margin: 2.5rem 0; 

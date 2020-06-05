@@ -8,14 +8,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  {
-    path: "",
-    component: ContainerComponent
-  },
-  {
-    path: "job/:id",
-    component: JobComponent
-  },
+  // {
+  //   path: "",
+  //   component: ContainerComponent
+  // },
+  { component: ContainerComponent, path: "", data: {animation: 'HomePage' }},
+  { component: JobComponent, path: "job/:id", data: {animation: 'JobPage' }},
   // {
   //   path: "about",
   //   component: AboutComponent
@@ -24,10 +22,9 @@ const routes: Routes = [
   //   path: "about/:id",
   //   component: AboutComponent
   // },
-   {
-    path: "contact",
-    component: ContactComponent
-  },
+  { component: ContactComponent, path: "contact", data: {animation: 'ContactPage' }},
+  { component: ContainerComponent, path: "**", data: {animation: 'HomePage'  }},
+
 ];
 
 @NgModule({
