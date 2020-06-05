@@ -11,6 +11,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { SidebarComponent } from './templates/sidebar/sidebar.component';
 import { CardComponent } from './card/card.component';
 import { ContainerComponent } from './container/container.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { JobComponent } from './job/job.component';
@@ -49,7 +50,8 @@ import { AdaptiveBackgroundDirective } from './directives/adaptive-background.di
     HttpClientModule,
     //HttpClientTestingModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
