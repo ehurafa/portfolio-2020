@@ -77,7 +77,7 @@ export class JobComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
       reader.readAsDataURL(blob)
     }));
 
-    showVibrantColor(url): any { 
+    showVibrantColor(url): any {   
       //  base64
       this.toDataURL(url)
       .then(dataUrl => {
@@ -89,6 +89,8 @@ export class JobComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
         Vibrant.from(image).getPalette()
         .then((palette) => {
           this.palette = palette; 
+
+          console.log('palette ', this.palette);
           
           this.setBg(this.figure.nativeElement, this.palette.DarkVibrant.getHex(),this.palette.Muted.rgb);           
 
@@ -123,7 +125,7 @@ export class JobComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
 
       this.technologies = this.job?.acf?.list_of_technologies;
       
-      //this.showVibrantColor(this.job?.acf?.image_post?.sizes?.large);
+      this.showVibrantColor(this.job?.acf?.image_post?.sizes?.large);
      
     });     
 
@@ -139,4 +141,3 @@ export class JobComponent implements OnInit, DoCheck, AfterContentInit, AfterCon
   ngAfterViewChecked(): void { }
   
   }
-
