@@ -50,6 +50,11 @@
     box-sizing: $type;
  }
 
+ @mixin line-height($height) {
+  height: $height;
+  line-height: $height;
+}
+
  // masonry 
  @mixin masonry($columns: 3, $gap: 2%, $selector: '> *') {
 

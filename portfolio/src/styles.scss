@@ -90,5 +90,34 @@ a {
     width: 100%;
 }
 
+// forms
+$formFiled: '.form-field';
+#{$formFiled} { 
+    @include line-height(40px);
+    @include transition(all 1.3s ease);
 
+    background: $color_grey;
+    display: block;
+    border: 0;
+    outline: none;
+    padding: 0 0.5rem;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    float: left;
+    width: 100%;  
+    &:focus {
+        background-color: $color_dark_grey;
+        color: #fff;
+    }
+}
+textarea#{$formFiled} {
+    min-height: 100px;
+}
+
+button#{$formFiled} {
+    &:not([disabled]) {
+        background: $color_black;
+        color: #fff;
+    }
   
+}

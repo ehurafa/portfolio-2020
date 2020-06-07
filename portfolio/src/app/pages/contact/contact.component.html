@@ -6,11 +6,12 @@
         <h2>Contato</h2>
 
         <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
-            <input type="text" placeholder="Name" formControlName="name" required>
-            <input type="email" placeholder="Email" formControlName="email"  required>
-            <textarea placeholder="Messages" formControlName="message"  required></textarea>
+            <input class="form-field" type="text" placeholder="Name" formControlName="name" required>
+            <input class="form-field" type="email" placeholder="Email" formControlName="email"  required>
+            <input class="form-field" type="text" placeholder="Assunto" formControlName="subject"  required>
+            <textarea class="form-field" placeholder="Messages" formControlName="message"  required></textarea>
      
-            <button type="submit" [disabled]="!contactForm.valid">Enviar</button>
+            <button class="form-field" type="submit" [disabled]="!contactForm.valid">Enviar</button>
         </form> 
        
 

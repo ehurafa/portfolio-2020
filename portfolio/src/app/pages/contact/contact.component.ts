@@ -13,6 +13,7 @@ export class ContactComponent implements OnInit {
   contactForm = new FormGroup({
     name: new FormControl(''),
     email: new FormControl(''),
+    subject: new FormControl(''),
     message: new FormControl(''),
   });
 
@@ -45,7 +46,7 @@ export class ContactComponent implements OnInit {
       const email = this.contactForm.value;
       const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
       this.http.post('https://formspree.io/mlepjazv',
-        { name: email.name, email: email.email, message: email.message },
+        { name: email.name, email: email.email, subject: email.subject, message: email.message },
         { 'headers': headers }).subscribe(
           response => {
             console.log(response);

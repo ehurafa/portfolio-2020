@@ -1,8 +1,8 @@
 @import '../../../helpers/colors';
 
-.contact {
+.contact { 
     padding: 5rem 0;
-
+   
     h2 {
         font-size: 5rem;
     }
@@ -20,8 +20,9 @@
     }
 }
 
-:host {
+:host { 
     display: block;
+    height: 100vh;
   }
   
   .open-close-container {
