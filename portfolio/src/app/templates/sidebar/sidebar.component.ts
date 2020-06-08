@@ -14,6 +14,12 @@ export class SidebarComponent implements OnInit {
     {'url': 'https://github.com/ehurafa?tab=repositories', 'title': 'Github', 'class':'github', 'pic': 'fa-github-alt'}  
   ];
 
+  pages: any[] = [
+    {'url': '/', 'title': 'Inicial'},
+   // {'url': '', 'Sobre mim': 'Sobre mim'},
+    {'url': '/contact', 'title': 'Contato'}
+  ];
+
   constructor() { }
 
   ngOnInit(): void {
