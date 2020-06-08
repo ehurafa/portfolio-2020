@@ -24,9 +24,8 @@
 
     <div class="navigation">
         <nav>
-            <a routerLink="/" title="">Inicial</a>
-            <!-- <a href="http://br.linkedin.com/in/rflrafa" title="Sobre mim">Sobre mim</a> -->
-            <a routerLink="/contact" title="Contato">Contato</a>
+            <a *ngFor="let page of pages" [href]="page.url"  routerLinkActive="active"
+            >{{ page.title }}</a>
         </nav>
     </div>
 </div>  

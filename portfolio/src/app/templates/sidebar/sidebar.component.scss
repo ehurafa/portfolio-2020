@@ -88,6 +88,10 @@
                 display: inline-block;
                 width: 100%;
                 margin-bottom: 0.5rem;
+                &:hover, &.active {
+                    border-left: 2px solid $color_blue;
+                    padding-left: 6px;
+                }
             }
         }    
         @include md {
