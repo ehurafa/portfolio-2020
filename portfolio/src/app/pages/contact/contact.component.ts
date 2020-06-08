@@ -17,6 +17,10 @@ export class ContactComponent implements OnInit {
     message: new FormControl(''),
   });
 
+  completeSend = false;
+  initFeedback = false;
+  onFeedback = false;
+
   constructor(private http: HttpClient) { }
 
 
@@ -42,14 +46,35 @@ export class ContactComponent implements OnInit {
     // TODO: Use EventEmitter with form value
     console.log(this.contactForm.value);
 
+    let self = this;
+
     if (this.contactForm.valid) {
       const email = this.contactForm.value;
       const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
       this.http.post('https://formspree.io/mlepjazv',
-        { name: email.name, email: email.email, subject: email.subject, message: email.message },
+        { name: email.name, 
+          email: email.email, subject: email.subject, message: email.message 
+        },
         { 'headers': headers }).subscribe(
           response => {
+            this.completeSend = true;
             console.log(response);
+
+            setTimeout(function(){
+              self.initFeedback = true;
+            }, 1000);
+
+            setTimeout(function(){
+              self.onFeedback = true;
+              self.completeSend = false;
+            }, 2000);
+
+            setTimeout(function(){
+             
+              self.onFeedback = false;
+              self.initFeedback = false;
+             
+            }, 5000);
           }
         );
     }

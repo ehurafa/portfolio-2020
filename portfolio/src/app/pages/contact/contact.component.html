@@ -2,17 +2,19 @@
 
 <div class="container-fluid"> 
 
-    <div class="contact">
-        <h2>Contato</h2>
+    <div class="contact" >
+        <h2>Contato</h2>  {{completeSend }}
 
-        <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
+        <form (ngSubmit)="onSubmit()" [formGroup]="contactForm" [ngClass]="{'is-sent':completeSend, 'off': initFeedback}">
             <input class="form-field" type="text" placeholder="Name" formControlName="name" required>
             <input class="form-field" type="email" placeholder="Email" formControlName="email"  required>
             <input class="form-field" type="text" placeholder="Assunto" formControlName="subject"  required>
-            <textarea class="form-field" placeholder="Messages" formControlName="message"  required></textarea>
+            <textarea class="form-field" placeholder="Messages" formControlName="message"  required></textarea> 
      
             <button class="form-field" type="submit" [disabled]="!contactForm.valid">Enviar</button>
         </form> 
+
+        <div  [ngClass]=" {'feedback': true, 'on':onFeedback}" style="font-size: 100px"> ✅</div>
        
 
      </div>    

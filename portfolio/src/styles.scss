@@ -9,7 +9,7 @@
 @import 'helpers/icons';
 
 :root {
-    font-size: 16px;
+    font-size: 16px;  
 
     @include md {       
         font-size: 14px;
@@ -19,6 +19,11 @@
 body {
     background: $color_black;
     position: relative;
+    font-family: 'Lato', sans-serif;
+}
+
+h2 {
+    font-weight: 700;
 }
 .shadow {
     background: #000;
