@@ -1,20 +1,95 @@
 
 
-<div class="container-fluid"> 
+<div class="container-fluid"  [ngClass]="{'light': initFeedback}"> 
 
     <div class="contact" >
-        <h2>Contato</h2>  {{completeSend }}
+        <h2>Contato</h2> 
+   
+        <div class="contact__inner">
+            <form (ngSubmit)="onSubmit()" 
+              [formGroup]="contactForm" 
+              [ngClass]="{'is-sent':completeSend, 'off': initFeedback}">
 
-        <form (ngSubmit)="onSubmit()" [formGroup]="contactForm" [ngClass]="{'is-sent':completeSend, 'off': initFeedback}">
-            <input class="form-field" type="text" placeholder="Name" formControlName="name" required>
-            <input class="form-field" type="email" placeholder="Email" formControlName="email"  required>
-            <input class="form-field" type="text" placeholder="Assunto" formControlName="subject"  required>
-            <textarea class="form-field" placeholder="Messages" formControlName="message"  required></textarea> 
-     
-            <button class="form-field" type="submit" [disabled]="!contactForm.valid">Enviar</button>
-        </form> 
+                <div class="form-field"
+                [ngClass]="{ 'invalid':name.invalid && (name.dirty || name.touched), 'valid':name.valid && (name.dirty || name.touched)}"  >
+                  
+                
+                <i class="fas fa-file-signature icon" ></i>
 
-        <div  [ngClass]=" {'feedback': true, 'on':onFeedback}" style="font-size: 100px"> ✅</div>
+                 <!--  <span class="check-icon">
+                    <i class="fas fa-check icon"></i>
+                  </span>   -->  
+                 
+                 
+
+                  <input                       
+                      class="form-field__field" 
+                      type="text" 
+                      placeholder="Nome" 
+                      formControlName="name" 
+                      required>
+                    
+                </div>                        
+               
+
+            <div class="form-field" *ngIf="name.valid || name.dirty && name.invalid"
+            [ngClass]="{ 'invalid':email.invalid && (email.dirty || email.touched), 'valid':email.valid && (email.dirty || email.touched)}"   
+            >
+              
+              <i class="far fa-comment-dots icon"></i>
+              <input               
+                type="email" placeholder="Email"  formControlName="email" required                
+                class="form-field__field" 
+              >
+             
+            </div>
+
+            <div class="form-field" *ngIf="email.valid || email.dirty && email.invalid"
+            [ngClass]="{
+               'invalid':subject.invalid && (subject.dirty || subject.touched), 'valid':subject.valid && (subject.dirty || subject.touched)}"   
+            >
+              <i class="fas fa-quote-left icon"></i>
+               <input 
+              
+                class="form-field__field" 
+                type="text" 
+                placeholder="Assunto" 
+                formControlName="subject" 
+                required>
+               
+          </div> 
+
+          <div class="form-field" *ngIf="subject.valid || subject.dirty && subject.invalid"
+          [ngClass]="{'invalid':message.invalid && (message.dirty || message.touched), 'valid':message.valid && (message.dirty || message.touched)}" 
+          >
+           
+            <i class="far fa-envelope icon"></i>  
+             <textarea               
+              type="text" placeholder="Mensagem" formControlName="message" required
+                
+              class="form-field__field" 
+            ></textarea>
+           
+          </div>              
+           
+         
+                <button class="button" type="submit" [disabled]="!contactForm.valid">Enviar</button>
+            </form> 
+    
+    
+            <div *ngIf="completeSend"> 
+              <div class="success-checkmark" >
+                <div class="check-icon">
+                  <span class="icon-line line-tip"></span>
+                  <span class="icon-line line-long"></span>
+                  <div class="icon-circle"></div>
+                  <div class="icon-fix"></div>
+                </div>
+              </div>
+            </div>  
+        </div>
+
+       
        
 
      </div>    

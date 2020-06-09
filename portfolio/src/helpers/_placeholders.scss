@@ -1,4 +1,6 @@
 @import './colors';
+@import './mixins';
+@import './config';
 
 %link {
     @include transition(all .3s ease);
@@ -104,4 +106,10 @@
     
         opacity: 0;
     }
+}
+
+%block {
+    display: block;
+    width: 100%; 
+    float: left;
 }
