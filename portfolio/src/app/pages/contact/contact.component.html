@@ -4,6 +4,16 @@
 
     <div class="contact" >
         <h2>Contato</h2> 
+     
+        <div class="progress-bar-container">
+          <div [ngClass]="[((completeSteps) ? 'complete' : ''), color, 'progress-bar']" 
+           [ngStyle]="{'width': progress + '%'}">
+              
+          </div>
+       </div>
+
+       
+       
    
         <div class="contact__inner">
             <form (ngSubmit)="onSubmit(contactForm, formDirective)" 
@@ -28,7 +38,9 @@
                       type="text" 
                       placeholder="Nome" 
                       formControlName="name" 
-                      required>
+                      required
+                      (mouseleave)="step('name', name.valid)"
+                     >
                     
                 </div>                        
                
@@ -41,6 +53,7 @@
               <input               
                 type="email" placeholder="Email"  formControlName="email" required                
                 class="form-field__field" 
+                (mouseleave)="step('email', name.valid)"
               >
              
             </div>
@@ -56,7 +69,8 @@
                 type="text" 
                 placeholder="Assunto" 
                 formControlName="subject" 
-                required>
+                required
+                (mouseleave)="step('subject', name.valid)">
                
           </div> 
 
@@ -69,6 +83,7 @@
               type="text" placeholder="Mensagem" formControlName="message" required
                 
               class="form-field__field" 
+              (mouseleave)="step('message', name.valid)"
             ></textarea>
            
           </div>              

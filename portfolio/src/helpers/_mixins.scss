@@ -54,6 +54,38 @@
   height: $height;
   line-height: $height;
 }
+@mixin innerColor( $color: #0db6e0 ) {
+  
+  background-color: transparentize( $color , 0.05 );
+  background-image:
+    linear-gradient(
+      90deg, 
+      transparentize( lighten( $color, 5% ), 1 ) 10%,
+      transparentize( lighten( $color, 10% ), 0.2 ) 30%,
+      transparentize( lighten( $color, 15% ), 0 ) 70%,
+      transparentize( lighten( $color, 10% ), 0.2 ) 80%,
+      transparentize( lighten( $color, 5% ), 1 ) 90%
+    ),
+    linear-gradient( 
+      to right,
+      transparentize( lighten( $color, 15% ), 1 ) 0%,
+      transparentize( lighten( $color, 15% ), 0 ) 100%
+    ),
+    linear-gradient( 
+      to left,
+      transparentize( lighten( $color, 15% ), 1 ) 0%,
+      transparentize( lighten( $color, 15% ), 0 ) 100%
+    );
+  
+  border-color: lighten( $color, 20% );
+  
+  box-shadow: 
+    0 0 0.6em lighten( $color, 10% ) inset,
+    0 0 0.4em lighten( $color, 5% ) inset,
+    0 0 0.5em transparentize( $color, 0.5),
+    0 0 0.1em transparentize( lighten( $color, 50% ), 0.5);
+  
+}
 
  // masonry 
  @mixin masonry($columns: 3, $gap: 2%, $selector: '> *') {

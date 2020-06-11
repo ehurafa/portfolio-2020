@@ -94,4 +94,79 @@
 }
 
 
+ // /mixins 
+ $progressBarHeight: 4px;
+.progress-bar-container {
+   
+    background: $color_light_black;
+    border: 1px solid $color_light_black;
+	height: $progressBarHeight - 1;
+	margin-bottom: 1rem;
+ 
+    .progress-bar {  
+        @include  border-radius($progressBarHeight/2);   
+          
+        height: $progressBarHeight;
+        width: 0;  
+        position: relative;
+        top: -1px;
+        left: -1px;  
+        
+        background-size: 100px 30px, 130px 30px, 130px 30px;
+        background-position: -20% center, right center, left center;
+        background-repeat: no-repeat, no-repeat, no-repeat;
+
+        transition: 
+        opacity 0.2s ease,
+        width 0.8s ease-out,
+        background-color 1s ease,
+        border-color 0.3s ease,
+        box-shadow 1s ease;
+      
+        animation: pulse 3s ease-out infinite;
+        
+        &.green {    
+            @include innerColor(green );
+         }
+        &.yellow {
+            @include innerColor(yellow);
+         }
+         &.orange {
+           
+            @include innerColor(orange);
+         }
+         &.red {
+            @include innerColor(red );
+         }
+         &.blue {
+            @include innerColor($color_blue);
+         }
+         &.complete {
+            animation: none;
+         }
+
+         .status {
+            width: 100%;
+            height: $progressBarHeight;
+            line-height: $progressBarHeight;
+            color: #fff;
+            display: inline-block;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            opacity: 0;
+         }
+     }
+}
+@keyframes pulse {
+  
+    0% {
+      background-position: -50% center, right center, left center;
+    }
+    
+    100% {
+      background-position: 150% center, right center, left center;
+    }
+    
+  }
 
