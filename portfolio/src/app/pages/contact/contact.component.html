@@ -6,7 +6,8 @@
         <h2>Contato</h2> 
    
         <div class="contact__inner">
-            <form (ngSubmit)="onSubmit()" 
+            <form (ngSubmit)="onSubmit(contactForm, formDirective)" 
+            #formDirective="ngForm"
               [formGroup]="contactForm" 
               [ngClass]="{'is-sent':completeSend, 'off': initFeedback}">
 
@@ -73,7 +74,7 @@
           </div>              
            
          
-                <button class="button" type="submit" [disabled]="!contactForm.valid">Enviar</button>
+                <button class="button" type="submit" [disabled]="!contactForm.valid" >Enviar</button>
             </form> 
     
     

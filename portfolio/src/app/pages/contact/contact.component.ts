@@ -1,6 +1,6 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, NgForm, FormGroupDirective } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -54,12 +54,18 @@ export class ContactComponent implements OnInit {
   get email() { return this.contactForm.get('email'); }
   get subject() { return this.contactForm.get('subject'); }
   get message() { return this.contactForm.get('message'); }
+
+    
  
-  onSubmit() {
+  onSubmit(formData: any, formDirective: FormGroupDirective ): void {
+
+    
+
     // TODO: Use EventEmitter with form value
     console.log(this.contactForm.value);
 
     let self = this;
+
 
     if (this.contactForm.valid) {
       const email = this.contactForm.value;
@@ -81,6 +87,9 @@ export class ContactComponent implements OnInit {
             setTimeout(function(){
               self.onFeedback = true;
               self.completeSend = false;
+
+              formDirective.resetForm();
+              self.contactForm.reset();          
             
             }, 2000);
 

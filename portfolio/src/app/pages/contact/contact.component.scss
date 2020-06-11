@@ -25,6 +25,9 @@
 		color: $color_white;
 		text-align: center;
 		margin-bottom: 2rem;
+		@include md {
+			font-size: 3rem;                
+		 }
 	}
 	
 	&__inner {
