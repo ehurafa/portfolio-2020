@@ -46,6 +46,10 @@
         &.off {
             display: none;
         }
+
+        @include sm {
+            margin-bottom: 4rem;
+        }
 	}
 
     .feedback {

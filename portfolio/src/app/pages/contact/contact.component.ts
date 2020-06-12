@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, HostBinding } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { FormGroup, FormControl, Validators, NgForm, FormGroupDirective } from '@angular/forms';
 
@@ -8,23 +8,24 @@ import { FormGroup, FormControl, Validators, NgForm, FormGroupDirective } from '
   styleUrls: ['./contact.component.scss'],
 
 })
-export class ContactComponent implements OnInit, OnChanges {
+export class ContactComponent implements OnInit {
 
   progress = 0;
-  total = 100;
-  steps = 0;
+  total = 100;  
   completeSend = false;
   initFeedback = false;
   onFeedback = false;
   color: string;
   completeSteps: boolean = false;
+  showBar = true;
 
   validateTable = [
-     { "name": '', "valid": false, "typed": false},
-     { "email": '', "valid": false, "typed": false},
-     { "subject": '', "valid": false, "typed": false},
-     { "message": '', "valid": false, "typed": false}   
+     { "id": 0, "key": "name", "name": "", "color": "red", "typed": false, "progress": 20},
+     { "id": 1, "key": "email", "email": "", "color": "orange", "typed": false, "progress": 40},
+     { "id": 2, "key": "subject", "subject": "", "color": "green", "typed": false, "progress": 60},
+     { "id": 3, "key": "message", "message": "", "color": "blue", "typed": false, "progress": 100}   
   ];
+ 
 
   contactForm = new FormGroup({
 
@@ -47,52 +48,65 @@ export class ContactComponent implements OnInit, OnChanges {
       ])
 
   });
-
   
 
   constructor(private http: HttpClient) { }
 
-  colors(): void {
-    this.completeSteps = false;
-   if(this.progress < 40) {
-     this.color = 'red';
-   } else if(this.progress < 60) {
-     this.color = 'orange';   
-   
-   } else if(this.progress < 90) {
-     this.color = 'green';
-   }
-   else {
-   this.color = 'blue';
-    this.completeSteps = true;
-   }
- }
+  setProps(el) {    
+    let filtered = this.validateTable.filter(function(e) {
+      return e.key == el; 
+    });       
+    
+    this.setTyped(filtered[0].id, true);
+    this.setColor(filtered[0].color);
+    this.setProgress(filtered[0].progress);
 
-  step(el, valid) {
-    this.completeSteps = false;
-  
-    if(el == 'name' && valid == true) {
-     
-      this.progress = 20;
-      this.color = 'red';
-    }  if(el == 'email' && valid == true) {
-     
-      this.progress = 40;
-      this.color = 'orange';   
-    } if(el == 'subject' && valid == true) {
-      this.progress = 60;
-      this.color = 'green';
-    } 
-     if(el == 'message' && valid == true) {
-      this.progress = 100;
-      this.color = 'blue';
-      this.completeSteps = true;
-    } 
-  
+  }
+  setTyped(pos, typed) {    
+    this.validateTable[pos].typed = typed;  
+  }
+  setColor(color) {  
+    this.color = color;   
+  }
+  setProgress(progress) {  
+    this.progress = progress;   
   }
 
-  ngOnInit(): void {
+  resetAnimation() {
+    for (let index = 0; index < this.validateTable.length; index++) {
+      this.setTyped(index, false);      
+    }  
 
+    this.setColor('red');
+    this.setProgress(0);
+  }
+
+  step(el, valid) {   
+    this.completeSteps = false;
+    if(el == 'name' && valid == true) {
+      if(this.validateTable[0].typed == false) {    
+        this.setProps('name');
+      }
+    }  
+    else if(el == 'email' && valid == true) {
+      if(this.validateTable[1].typed == false) {
+        this.setProps('email');
+      }
+    } 
+    else if(el == 'subject' && valid == true) {
+      if(this.validateTable[2].typed == false) {
+        this.setProps('subject');
+      } 
+    } 
+    else if(el == 'message' && valid == true) {
+      if(this.validateTable[3].typed == false) {
+        this.setProps('message');       
+      }
+      this.completeSteps = true;     
+    } 
+  }
+
+  initBar() {
     if(!this.progress) {
       this.progress = 0;
     }
@@ -108,9 +122,12 @@ export class ContactComponent implements OnInit, OnChanges {
       this.total = 100;
     }
     this.progress = (this.progress / this.total) * 100;
-     
-    this.colors()
- 
+  }
+
+  ngOnInit(): void {
+
+    this.initBar();     
+    this.setColor('red'); 
 
   }
   get name() { return this.contactForm.get('name'); }
@@ -133,10 +150,12 @@ export class ContactComponent implements OnInit, OnChanges {
         },
         { 'headers': headers }).subscribe(
           response => {
-            this.completeSend = true;           
+            this.completeSend = true;    
+            self.showBar = false;         
 
             setTimeout(function(){
               self.initFeedback = true;
+              self.resetAnimation();
             }, 200);
 
             setTimeout(function(){
@@ -144,7 +163,7 @@ export class ContactComponent implements OnInit, OnChanges {
               self.completeSend = false;
 
               formDirective.resetForm();
-              self.contactForm.reset();          
+              self.contactForm.reset();                  
             
             }, 2000);
 
@@ -152,15 +171,12 @@ export class ContactComponent implements OnInit, OnChanges {
              
               self.onFeedback = false;
               self.initFeedback = false;
+              self.showBar = true;     
              
             }, 4000);
           }
         );
     }
-  }
-
-  ngOnChanges () { 
-    this.colors();
   }
 
 }

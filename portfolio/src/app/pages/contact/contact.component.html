@@ -1,18 +1,16 @@
 
 
-<div class="container-fluid"  [ngClass]="{'light': initFeedback}"> 
+<div class="container-fluid" [ngClass]="{'light': initFeedback}"> 
 
     <div class="contact" >
         <h2>Contato</h2> 
      
-        <div class="progress-bar-container">
+        <div class="progress-bar-container" *ngIf="showBar">
           <div [ngClass]="[((completeSteps) ? 'complete' : ''), color, 'progress-bar']" 
            [ngStyle]="{'width': progress + '%'}">
               
           </div>
-       </div>
-
-       
+       </div>     
        
    
         <div class="contact__inner">
@@ -23,26 +21,18 @@
 
                 <div class="form-field"
                 [ngClass]="{ 'invalid':name.invalid && (name.dirty || name.touched), 'valid':name.valid && (name.dirty || name.touched)}"  >
-                  
-                
+                                  
                 <i class="fas fa-file-signature icon" ></i>
-
-                 <!--  <span class="check-icon">
-                    <i class="fas fa-check icon"></i>
-                  </span>   -->  
-                 
-                 
-
                   <input                       
                       class="form-field__field" 
                       type="text" 
                       placeholder="Nome" 
                       formControlName="name" 
                       required
-                      (mouseleave)="step('name', name.valid)"
+                      (keydown)="step('name', name.valid)"
                      >
                     
-                </div>                        
+                </div>                       
                
 
             <div class="form-field" *ngIf="name.valid || name.dirty && name.invalid"
@@ -53,7 +43,7 @@
               <input               
                 type="email" placeholder="Email"  formControlName="email" required                
                 class="form-field__field" 
-                (mouseleave)="step('email', name.valid)"
+                (keydown)="step('email', name.valid)"
               >
              
             </div>
@@ -70,7 +60,7 @@
                 placeholder="Assunto" 
                 formControlName="subject" 
                 required
-                (mouseleave)="step('subject', name.valid)">
+                (keydown)="step('subject', name.valid)">
                
           </div> 
 
@@ -83,10 +73,10 @@
               type="text" placeholder="Mensagem" formControlName="message" required
                 
               class="form-field__field" 
-              (mouseleave)="step('message', name.valid)"
+              (keydown)="step('message', name.valid)"
             ></textarea>
            
-          </div>              
+          </div>           
            
          
                 <button class="button" type="submit" [disabled]="!contactForm.valid" >Enviar</button>
