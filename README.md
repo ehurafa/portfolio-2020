@@ -16,7 +16,6 @@ O projeto ainda está em desenvolvimento...
 | :art: Color Template - Renderer to Adaptive Background Image | Re-testing  |
 | :hammer: Contact Form                                      | Development    |
 | :calling: Responsive Improvements                                | Development |
-| :mailbox_with_mail: API OrderBy                                            | Development |
 | :hammer: Refactory Services                                     | Development |
 | :performing_arts: Animations                                             | Development    |
 | :traffic_light: Controll States                                        | Stand by    |
@@ -26,4 +25,5 @@ O projeto ainda está em desenvolvimento...
 | :hourglass: New Loader All Application                             | Stand by    |
 | :hourglass: Lazy Loading                           | Stand by    |
 | :arrow_left: Collapse Sidebar                            | Stand by    |
+| :mailbox_with_mail: ~~API OrderBy~~                                            | Complete |
 

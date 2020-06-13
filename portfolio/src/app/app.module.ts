@@ -18,6 +18,8 @@ import { JobComponent } from './job/job.component';
 import { PreloaderComponent } from './templates/preloader/preloader.component';
 import { ContactComponent } from './pages/contact/contact.component';
 
+import { NgpSortModule } from "ngp-sort-pipe";
+
 /*
 import { AboutComponent } from './pages/about/about.component';
 import { TemplatesComponent } from './templates/templates.component';
@@ -39,8 +41,7 @@ import { AdaptiveBackgroundDirective } from './directives/adaptive-background.di
    //TemplatesComponent,
    // FooterComponent,
     //AdaptiveBackgroundDirective,
-    PreloaderComponent
-    
+    PreloaderComponent    
    
   ],
   imports: [
@@ -51,7 +52,8 @@ import { AdaptiveBackgroundDirective } from './directives/adaptive-background.di
     //HttpClientTestingModule,
     FormsModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+	NgpSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
