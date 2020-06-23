@@ -1,11 +1,12 @@
 import { slideInAnimation } from './animations';
 //## import { environment } from './../environments/environment';
 //import { PostsService } from './../services/posts.service';
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, HostListener, Inject  } from '@angular/core';
 //## import { AdaptiveBackgroundDirective } from './directives/adaptive-background.directive';
 import { BehaviorSubject } from 'rxjs';
 import {transition, trigger, group, animate, style, query} from '@angular/animations';
 import { RouterOutlet } from '@angular/router';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -28,10 +29,23 @@ export class AppComponent implements OnInit {
   //## nomeBehaviorSubjectPai= new BehaviorSubject<string>("rafa");
 
   constructor(//private postsService: PostsService
-    ) {
-  
-   
-   
+    @Inject(DOCUMENT) private document: Document
+    ) { }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    if (document.body.scrollTop > 20 ||     
+      document.documentElement.scrollTop > 20) {
+      document.getElementById('sidebar').classList.add('squeezed');  
+    }
+    if (document.body.scrollTop > 60 ||     
+      document.documentElement.scrollTop > 60) {
+      document.getElementById('sidebar').classList.add('squeezed__level-2');  
+    }
+    if (document.body.scrollTop > 120 ||     
+      document.documentElement.scrollTop > 120) {
+      document.getElementById('sidebar').classList.add('squeezed__level-3');  
+    }
   }
 
   prepareRoute(outlet: RouterOutlet) {

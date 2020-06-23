@@ -9,5 +9,52 @@
             padding-left: 15px;
             padding-right: 15px;
         }
+
+       
+    }
+    .sidebar {
+      
+       &.squeezed {
+            @include transition(all 1s ease);  
+
+            height: 80vh;
+            .inner { 
+                height: 80vh;
+                .logo {                
+                   img {
+                       width: 120px;
+                   }
+                }
+            }
+        }
+        &.squeezed__level-2 {
+            height: auto;
+
+           .inner {
+            height: auto;
+
+            div.logo {     
+                margin: 0.5rem 0;
+            }
+             img {
+                @include transition(all 2s ease);  
+
+                transform: scale(.6);
+            }
+           }
+        }
+
+        &.squeezed__level-3 {
+         
+
+           .inner {
+         
+             img {
+                @include transition(all 2.2s ease); 
+
+                transform: scale(.1);
+            }
+           }
+        }
     }
 }
