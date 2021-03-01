@@ -5,7 +5,7 @@ import { Component, OnInit, ViewChild, ElementRef, HostListener, Inject  } from 
 //## import { AdaptiveBackgroundDirective } from './directives/adaptive-background.directive';
 import { BehaviorSubject } from 'rxjs';
 import {transition, trigger, group, animate, style, query} from '@angular/animations';
-import { RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
@@ -30,7 +30,15 @@ export class AppComponent implements OnInit {
 
   constructor(//private postsService: PostsService
     @Inject(DOCUMENT) private document: Document
-    ) { }
+    //public router: Router
+    ) {
+      /*this.router.events.subscribe(event => {
+        if (event instanceof NavigationEnd) {
+          ga('set', 'page', event.urlAfterRedirects);
+          ga('send', 'pageview');
+        }
+      }); */
+    }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
