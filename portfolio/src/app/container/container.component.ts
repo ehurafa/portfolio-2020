@@ -43,9 +43,6 @@ export class ContainerComponent implements OnInit {
     this.postsService.getPosts()
     .subscribe(posts => {
       this.posts = posts;
-
-      console.log('posts >> ', posts);
-  
     }); 
 
     for (const key in this.posts) {
