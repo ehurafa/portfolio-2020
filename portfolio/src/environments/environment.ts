@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  postAPI: 'http://localhost:6001/jobs',
-  postsAPI: 'http://localhost:6001/jobs'
+  postAPI: 'http://localhost:3000/posts',
+  postsAPI: 'http://localhost:3000/posts'
 };
 
 /*
