@@ -1,4 +1,5 @@
 import { ContactComponent } from './pages/contact/contact.component';
+import { CertificatesComponent } from './pages/certificates/certificates.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContainerComponent } from './container/container.component';
 import { JobComponent } from './job/job.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
   //   component: AboutComponent
   // },
   { component: ContactComponent, path: "contact", data: {animation: 'ContactPage' }},
+  { component: CertificatesComponent, path: "certificates", data: {animation: 'CertificatesPage' }},
   { component: ContainerComponent, path: "**", data: {animation: 'HomePage'  }},
 
 ];

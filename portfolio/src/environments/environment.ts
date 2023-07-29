@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  postAPI: 'http://localhost:3000/posts',
-  postsAPI: 'http://localhost:3000/posts'
+  postAPI: 'https://rafaelgomes.net/postsapi/wp-json/acf/v3/posts?per_page=100',
+  postsAPI: 'https://rafaelgomes.net/postsapi/wp-json/acf/v3/posts?per_page=100',
 };
 
 /*

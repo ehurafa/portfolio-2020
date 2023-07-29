@@ -6,6 +6,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, EMPTY } from 'rxjs';
 import {map, catchError } from 'rxjs/operators';
 
+export interface Cert {
+  name: string;
+}
+
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +45,15 @@ export class PostsService {
       map(obj => obj),
       catchError(e =>  this.errorHandler(e))
     )
-  }  
+    }
+
+    getCerts(): any  {
+
+      const foo: Cert = { name: 'b'};
+
+      return [ foo ]
+       
+      } 
  
  showMessage(msg: string, isError: boolean = false): void {
     // this.snackBar.open(msg, 'x', {

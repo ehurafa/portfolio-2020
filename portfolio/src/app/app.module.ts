@@ -17,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { JobComponent } from './job/job.component';
 import { PreloaderComponent } from './templates/preloader/preloader.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { CertificatesComponent } from './pages/certificates/certificates.component';
 
 import { NgpSortModule } from "ngp-sort-pipe";
 
@@ -44,6 +45,7 @@ import { AdaptiveBackgroundDirective } from './directives/adaptive-background.di
     PreloaderComponent    
    
   ],
+  exports: [CardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

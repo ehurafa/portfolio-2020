@@ -1,0 +1,30 @@
+
+    <div class="container-fluid">    
+                          
+       <div>
+            <h2>Certificados</h2>
+       </div>
+        vvv {{ posts[0].name }}
+        <div class="row" *ngIf="posts">    
+                x
+                <div *ngIf="posts">
+                    <div class="col-lg-3 col-md-4 col-sm-6  col-12" *ngFor="let post in posts">
+                        y
+                    {{ post['name'] }}
+
+            </div>
+        </div>
+            <ng-template ngFor let-item [ngForOf]="posts" let-i="index">
+                z
+                
+              </ng-template>
+              <ul>
+                <li *ngFor="let a of posts">a >> {{a}}</li>
+              </ul>
+        </div>
+
+
+  </div>
+
+
+

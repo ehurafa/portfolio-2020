@@ -17,6 +17,7 @@ export class SidebarComponent implements OnInit {
   pages: any[] = [
     {'url': '/', 'title': 'Inicial'},
    // {'url': '', 'Sobre mim': 'Sobre mim'},
+    {'url': '/certificates', 'title': 'Certificados'},
     {'url': '/contact', 'title': 'Contato'}
   ];
 
